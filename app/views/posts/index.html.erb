@@ -1,10 +1,10 @@
 
 <% flash.keys.each do |type| %>
-            <div data-alert class="flash <%= type %> alert-box radius">
-                <%= flash[type] %>
-                <a href="/posts" class="close">&times;</a>
-            </div>
-          <% end %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="/posts" class="close">&times;</a>
+  </div>
+<% end %>
 
 
 <% @posts.each do |post| %>
