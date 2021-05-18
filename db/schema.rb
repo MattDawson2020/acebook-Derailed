@@ -21,11 +21,6 @@ ActiveRecord::Schema.define(version: 2021_05_18_110843) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tests", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
