@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Signup", type: :feature do
+  
   scenario "User can sign up and redirected to posts" do
     visit "/"
     click_link "Sign up"
@@ -11,4 +12,5 @@ RSpec.feature "Signup", type: :feature do
     expect(page).to have_content("Hello User")
     expect(current_path).to eq("/posts")
   end
+
 end
