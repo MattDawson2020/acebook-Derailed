@@ -6,10 +6,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.save
+    if @user.valid?
       redirect_to posts_url
       flash[:notice] = "Hello #{@user.name}"
+      
     end
+    redirect_to '/signup'
+    flash[:emailerror] = 'email already in use'
   end
 
   # def index
