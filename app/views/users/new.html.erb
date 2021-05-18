@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +9,20 @@
   <link rel="stylesheet" href="../../assets/stylesheets/users.new.css">
 </head>
 <body>
+  <% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="/users" class="close">&times;</a>
+  </div>
+<% end %>
+
   <%= form_for @user do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
   <%= form.label :email %>
   <%= form.text_field :email %>
   <%= form.label :password %>
-  <%= form.text_field :password %>
-
+  <%= form.password_field :password %>
   <%= form.submit "Create User" %>
 <% end %>
 </body>
