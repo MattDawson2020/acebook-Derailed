@@ -1,14 +1,15 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
-    
   end
 
   def create
     @user = User.create(user_params)
-   
-    redirect_to posts_url
-    flash[:notice] = "Hello #{@user.name}"
+    if @user.save
+      redirect_to posts_url
+      flash[:notice] = "Hello #{@user.name}"
+    end
   end
 
   # def index
