@@ -9,9 +9,10 @@
 
 <% @posts.each do |post| %>
   <p><%= post.message %></p>
-  <button>Like</button>
+  <%= button_to 'Like', like_path(post.id), method: 'put'%>
+  <%= post.likes %> <%= post.likes == 1 ? 'Like' : 'Likes' %>
 <% end %>
-
+<br>
 <%= link_to new_post_path do %>
   New post
 <% end %>
