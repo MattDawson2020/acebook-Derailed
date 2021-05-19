@@ -1,1 +1,31 @@
-<%= link_to "Sign up", signup_path %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="/" class="close">&times;</a>
+  </div>
+<% end %>
+
+<%= form_for(:session, url: login_path) do |form| %>
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+  <%= form.submit "Login" %>
+<% end %>
+
+
+    <br>
+    <%= link_to "Sign up", signup_path %>
+</body>
+</html>
