@@ -8,5 +8,15 @@ RSpec.feature "Timeline", type: :feature do
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
   end
+end
 
+RSpec.feature "Like", type: :feature do
+  scenario "Can like a post" do
+    visit "/posts"
+    click_link "New post"
+    fill_in "Message", with: "Hello, world!"
+    click_button "Submit"
+    click_button "Like"
+    expect(page).to have_content("1 Like")
+  end
 end

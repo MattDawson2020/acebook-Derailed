@@ -9,6 +9,7 @@
 
 <% @posts.each do |post| %>
   <p><%= post.message %></p>
+  <button>Like</button>
 <% end %>
 
 <%= link_to new_post_path do %>
