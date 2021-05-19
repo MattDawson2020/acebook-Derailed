@@ -9,6 +9,9 @@
 
 <% @posts.each do |post| %>
   <p><%= post.message %></p>
+  <%= link_to new_comment_path do %>
+    New comment
+  <% end %>
 <% end %>
 
 <%= link_to new_post_path do %>

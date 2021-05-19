@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     else
       flash[:emailerror] = "You cannot create an account"
       redirect_to '/signup'
-      
     end
   end
 

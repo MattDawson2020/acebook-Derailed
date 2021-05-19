@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :posts
   resources :users
+
+  resources :comments
+  
 end
