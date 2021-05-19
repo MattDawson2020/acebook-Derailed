@@ -9,15 +9,11 @@ class UsersController < ApplicationController
     if @user.valid?
       redirect_to posts_url
       flash[:notice] = "Hello #{@user.name}"
-      
     else
-      flash[:emailerror] = "Can\'t create an account"
+      flash[:emailerror] = "You cannot create an account"
       redirect_to '/signup'
       
     end
-    
-   # 
-    
   end
 
   # def index

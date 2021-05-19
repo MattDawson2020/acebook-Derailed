@@ -11,7 +11,7 @@
 <body>
   <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
-    <%= flash[:emailerror] %>
+    <%= flash[type] %>
     <a href="signup" class="close">&times;</a>
   </div>
 <% end %>
