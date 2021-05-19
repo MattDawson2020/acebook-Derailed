@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "signup", to: "users#new"
 
   post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
   root to: "pages#home"
   resources :posts
   resources :users
