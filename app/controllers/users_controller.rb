@@ -10,9 +10,14 @@ class UsersController < ApplicationController
       redirect_to posts_url
       flash[:notice] = "Hello #{@user.name}"
       
+    else
+      flash[:emailerror] = "Can\'t create an account"
+      redirect_to '/signup'
+      
     end
-    redirect_to '/signup'
-    flash[:emailerror] = 'email already in use'
+    
+   # 
+    
   end
 
   # def index
