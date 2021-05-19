@@ -1,7 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Validations", type: :feature do
-  
   scenario "User can't sign up an existing email" do
     visit "/"
     click_link "Sign up"
@@ -9,7 +8,7 @@ RSpec.feature "Validations", type: :feature do
     fill_in "Email", with: "user@gmail.com"
     fill_in "Password", with: "123456"
     click_button "Create User"
-    
+
     # click_button 'Sign Out'
     # this test will break when sign in and sign out is implemented, match the above button to the sign out function created to fix
     visit "/"
@@ -18,7 +17,7 @@ RSpec.feature "Validations", type: :feature do
     fill_in "Email", with: "user@gmail.com"
     fill_in "Password", with: "123456"
     click_button "Create User"
-    expect(page).to have_content('Can\'t create an account')
+    expect(page).to have_content("You cannot create an account")
     # attempted to match to flash notice warning user could not be created but had difficulty implementing logic, update test
   end
 
@@ -96,5 +95,4 @@ RSpec.feature "Validations", type: :feature do
 
     expect(before_user).to eq(after_user)
   end
-
 end

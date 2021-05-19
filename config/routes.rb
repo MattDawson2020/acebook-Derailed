@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   put '/post/:id/like', to: 'posts#like', as: 'like'
   post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
   root to: "pages#home"
   resources :posts
   resources :users
