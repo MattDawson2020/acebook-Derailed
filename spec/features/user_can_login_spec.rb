@@ -7,7 +7,7 @@ feature "login" do
     fill_in "Email", with: "team@derailed.com"
     fill_in "Password", with: "CKMMNTT"
     click_button "Login"
-    expect(page).to have_content("Successful login, welcome")
+    expect(page).to have_content("Successful login, welcome teamDerailed")
   end
 
   scenario "login with incorrect password" do

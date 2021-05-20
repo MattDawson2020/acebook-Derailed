@@ -4,6 +4,7 @@ def sign_up
   fill_in "Name", with: "teamDerailed"
   fill_in "Email", with: "team@derailed.com"
   fill_in "Password", with: "CKMMNTT"
+  fill_in "Password confirmation", with: "CKMMNTT"
   click_button "Create User"
 end
 
