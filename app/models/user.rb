@@ -2,6 +2,8 @@ class User < ApplicationRecord
   # has_many :comments
 
   has_secure_password
+  has_one_attached :image
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, :email, :password, presence: true
@@ -10,7 +12,15 @@ class User < ApplicationRecord
   validates :password, confirmation: { case_sensitive: true }
   before_save :downcasemail
 
+  
+
   def downcasemail
     self.email.downcase!
   end
+
+  def self.find_name(id)
+    user = User.find(id)
+    user.name
+  end
+
 end

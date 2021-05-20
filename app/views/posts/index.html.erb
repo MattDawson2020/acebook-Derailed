@@ -1,18 +1,25 @@
 <%= link_to new_post_path do %>
   New post
 <% end %>
+
+
 <% @posts.each do |post| %>
-
-
+  <p>
+    <% user = User.find(post.user_id) %>
+    <%= image_tag user.image, style: "width: 20px;" %>
+    <%= user.name %>
+  </p>
   <p><%= post.message %></p>
-  <%= link_to new_comment_path do %>
+   <%= link_to new_comment_path do %>
     New comment
   <% end %>
   <% @comments.each do |comment| %>
   <p><%= comment.body %></p>
+
 <% end %>
-
-
-  <%= button_to "Like", like_path(post.id), method: "put" %>
-  <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>
+  <div>
+    <%= button_to "Like", like_path(post.id), method: "put" %>
+    <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>
+  </div>
+  
 <% end %>
