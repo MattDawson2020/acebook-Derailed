@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
+    @comments = Comment.all
   end
 
   def like
@@ -22,4 +23,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:message)
   end
+  
 end
