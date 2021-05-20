@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../../assets/stylesheets/users.new.css">
 </head>
 <body>
- 
+
 <div>
   <%= form_for @user do |form| %>
   <%= form.label :name %>
@@ -19,9 +19,11 @@
   <%= form.label :image, 'Display Picture' %>
   <%= form.file_field :image %>
   <%= form.label :password %>
-  <%= form.password_field :password %>
+
+  <%= form.password_field :password, placeholder: "Enter 6 to 20 characters." %>
    <%= form.label :password_confirmation %>
   <%= form.password_field :password_confirmation %>
+
   <%= form.submit "Create User" %>
 <% end %>
 </div>

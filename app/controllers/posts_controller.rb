@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    redirect_to "/" unless session[:user_id]
     @posts = Post.all.order(created_at: :desc)
     @comments = Comment.all
   end
