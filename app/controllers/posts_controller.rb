@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def index
     redirect_to "/" unless session[:user_id]
     @posts = Post.all.order(created_at: :desc)
+    @comments = Comment.all
   end
 
   def like
@@ -23,4 +24,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:message)[:message]
   end
+  
 end
