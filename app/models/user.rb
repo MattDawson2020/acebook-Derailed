@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :comments
+  # has_many :comments
   
   has_secure_password
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

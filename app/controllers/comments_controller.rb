@@ -5,8 +5,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @user = User.find(id: session[:user_id])
-    p @user
+    # @user = User.find(id: session[:user_id])
     @comment = Comment.create(user_params)
     redirect_to posts_url
   end
