@@ -35,4 +35,17 @@
   </main>
 
 </body>
+
+<%
+=begin%>
+ these elements are the working form that must be nested inside the above bootstrap form 
+<%
+=end%>
+<%= form_for(:session, url: login_path) do |form| %>
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+  <%= form.submit "Login" %>
+<% end %>
 </html>
