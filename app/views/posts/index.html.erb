@@ -1,13 +1,18 @@
 
-
-
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="/posts" class="close">&times;</a>
+  </div>
+<% end %>
 
 <% @posts.each do |post| %>
+  <p><%= User.find_name(post.user_id) %></p>
   <p><%= post.message %></p>
   <%= button_to 'Like', like_path(post.id), method: 'put'%>
   <%= post.likes %> <%= post.likes == 1 ? 'Like' : 'Likes' %>
 <% end %>
-<br>
+
 <%= link_to new_post_path do %>
   New post
 <% end %>

@@ -11,4 +11,9 @@ class User < ApplicationRecord
   def downcasemail
     self.email.downcase!
   end
+
+  def self.find_name(id)
+    user = User.find(id)
+    user.name
+  end
 end
