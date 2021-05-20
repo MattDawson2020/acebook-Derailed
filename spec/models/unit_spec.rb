@@ -25,10 +25,5 @@ RSpec.describe User, type: :model do
       expect(User.find_name(user.id)).to eq "user"
     end
   end
-
-  describe '#find image' do
-    pending()
-  end
-
 end
 

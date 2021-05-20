@@ -3,6 +3,7 @@ def sign_up
   click_link "Sign up"
   fill_in "Name", with: "teamDerailed"
   fill_in "Email", with: "team@derailed.com"
+  attach_file 'Display Picture', (File.dirname(__FILE__) + '/features/images/bob_ross_img.png')
   fill_in "Password", with: "CKMMNTT"
   click_button "Create User"
 end
