@@ -9,4 +9,11 @@ feature 'User displays picture' do
     click_button("Submit")
     expect(page).to have_content("teamDerailed")
   end
+
+  xscenario "a user's display picture appears next to post" do
+    visit '/'
+    # upload picture in sign up
+    #login and create post
+    #expect page to have image file using have_css("img[src*='w3schools']")
+  end
 end 

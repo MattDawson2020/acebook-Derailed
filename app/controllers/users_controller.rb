@@ -14,13 +14,10 @@ class UsersController < ApplicationController
     end
   end
 
-  # def index
-  #   @posts = Post.all
-  # end
-
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :email)
+    p params
+    params.require(:user).permit(:name, :password, :email, :image)
   end
 end

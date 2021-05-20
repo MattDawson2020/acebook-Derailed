@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  has_one_attached :image
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, :email, :password, presence: true
@@ -7,6 +9,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, maximum: 20 }
 
   before_save :downcasemail
+
+  
 
   def downcasemail
     self.email.downcase!
@@ -16,4 +20,5 @@ class User < ApplicationRecord
     user = User.find(id)
     user.name
   end
+
 end

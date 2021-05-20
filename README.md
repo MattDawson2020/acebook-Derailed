@@ -6,6 +6,7 @@ First, clone this repository. Then:
 
 ```bash
 > bundle install
+> rails active_storage:install
 > bin/rails db:create
 > bin/rails db:migrate
 
