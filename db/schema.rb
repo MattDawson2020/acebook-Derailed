@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2021_05_19_140541) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+    t.integer "likes", default: 0
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,5 +38,4 @@ ActiveRecord::Schema.define(version: 2021_05_19_140541) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
   end
-
 end

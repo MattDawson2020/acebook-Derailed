@@ -9,12 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-  <% flash.keys.each do |type| %>
-  <div data-alert class="flash <%= type %> alert-box radius">
-    <%= flash[type] %>
-    <a href="/" class="close">&times;</a>
-  </div>
-<% end %>
+
 
 <%= form_for(:session, url: login_path) do |form| %>
   <%= form.label :email %>

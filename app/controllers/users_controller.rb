@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
     @user = User.new
   end
@@ -7,11 +6,12 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.valid?
-      redirect_to posts_url
-      flash[:notice] = "Hello #{@user.name}"
+      redirect_to root_path
+      flash[:newuser] = "You have created your account #{@user.name}"
     else
       flash[:emailerror] = "You cannot create an account"
-      redirect_to '/signup'
+
+      redirect_to "/signup"
     end
   end
 
@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :email)
+    params.require(:user).permit(:name, :password, :email, :password_confirmation)
   end
-
 end

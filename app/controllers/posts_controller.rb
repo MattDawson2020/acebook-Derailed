@@ -13,6 +13,11 @@ class PostsController < ApplicationController
     @comments = Comment.all
   end
 
+  def like
+    Post.like(params[:id])
+    redirect_to posts_url
+  end
+
   private
 
   def post_params
