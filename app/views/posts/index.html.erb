@@ -1,27 +1,18 @@
-
-
-
-
+<%= link_to new_post_path do %>
+  New post
+<% end %>
 <% @posts.each do |post| %>
+
+
   <p><%= post.message %></p>
-<<<<<<< HEAD
   <%= link_to new_comment_path do %>
     New comment
   <% end %>
-<% end %>
-
-
-<% @comments.each do |comment|%>
+  <% @comments.each do |comment| %>
   <p><%= comment.body %></p>
 <% end %>
 
 
-=======
-  <%= button_to 'Like', like_path(post.id), method: 'put'%>
-  <%= post.likes %> <%= post.likes == 1 ? 'Like' : 'Likes' %>
-<% end %>
-<br>
->>>>>>> main
-<%= link_to new_post_path do %>
-  New post
+  <%= button_to "Like", like_path(post.id), method: "put" %>
+  <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>
 <% end %>
