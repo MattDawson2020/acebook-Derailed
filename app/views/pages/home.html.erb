@@ -12,40 +12,28 @@
 
   <main>
     <div class="position-absolute top-50 start-50 translate-middle">
-      <form>
+      <%= form_for(:session, url: login_path) do |form| %>
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div class="form-floating" >
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Email address</label>
+          <%= form.text_field :email, class: "form-control", id: "floatingInput", placeholder: "Enter your email address" %>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
+          <%= form.password_field :password, class: "form-control", id: "floatingPassword", placeholder: "Password"  %>
         </div>
 
         <div class="checkbox mb-3">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
+          <%= form.submit "Login", class: "w-100 btn btn-lg btn-primary"%>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-      </form>
+      <% end %>
+       <%= link_to "Sign up", signup_path, class: "w-100 btn btn-lg btn-primary"%>
     </div>
   </main>
 
 </body>
+  
 
-<%
-=begin%>
- these elements are the working form that must be nested inside the above bootstrap form 
-<%
-=end%>
-<%= form_for(:session, url: login_path) do |form| %>
-  <%= form.label :email %>
-  <%= form.text_field :email %>
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-  <%= form.submit "Login" %>
-<% end %>
 </html>
