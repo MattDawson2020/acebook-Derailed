@@ -9,12 +9,7 @@
   <link rel="stylesheet" href="../../assets/stylesheets/users.new.css">
 </head>
 <body>
-  <% flash.keys.each do |type| %>
-  <div data-alert class="flash <%= type %> alert-box radius">
-    <%= flash[type] %>
-    <a href="signup" class="close">&times;</a>
-  </div>
-<% end %>
+ 
 <div>
   <%= form_for @user do |form| %>
   <%= form.label :name %>
@@ -25,6 +20,8 @@
   <%= form.file_field :image %>
   <%= form.label :password %>
   <%= form.password_field :password %>
+   <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation %>
   <%= form.submit "Create User" %>
 <% end %>
 </div>

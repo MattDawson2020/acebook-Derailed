@@ -5,6 +5,7 @@ def sign_up
   fill_in "Email", with: "team@derailed.com"
   attach_file 'Display Picture', (File.dirname(__FILE__) + '/features/images/bob_ross_img.png')
   fill_in "Password", with: "CKMMNTT"
+  fill_in "Password confirmation", with: "CKMMNTT"
   click_button "Create User"
 end
 

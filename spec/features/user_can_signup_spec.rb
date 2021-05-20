@@ -7,6 +7,7 @@ RSpec.feature "Signup", type: :feature do
     fill_in "Name", with: "User"
     fill_in "Email", with: "user@gmail.com"
     fill_in "Password", with: "123456"
+    fill_in "Password confirmation", with: "123456"
     click_button "Create User"
     expect(page).to have_content("You have created your account User")
     expect(current_path).to eq("/")
