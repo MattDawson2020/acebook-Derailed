@@ -9,7 +9,8 @@
     <%= image_tag user.image, style: "width: 20px;" %>
     <%= user.name %>
   </p>
-  <p><%= post.message %></p>
+  <p><%= post.message %></p> <br>
+  <div><%= image_tag post.post_image, style: "width: 100px; height: 100px;" if post.post_image.attached?%></div>
    <%= link_to new_comment_path do %>
     New comment
   <% end %>
