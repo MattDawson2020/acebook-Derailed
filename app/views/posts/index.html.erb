@@ -1,4 +1,4 @@
-
+<main>
 <%= link_to new_post_path do %>
   New post
 <% end %>
@@ -10,11 +10,12 @@
     <%= user.name %>
   </p>
   <p><%= post.message %></p> <br>
-  <div><%= image_tag post.post_image, style: "width: 100px; height: 100px;" if post.post_image.attached?%></div>
+  <div><%= image_tag post.post_image, style: "width: 100px; height: 100px;" if post.post_image.attached? %></div>
+  <span><%= post.created_at.strftime("Posted at %H:%M on %a %b %Y") %></span> <br />
    <%= link_to new_comment_path do %>
     New comment
   <% end %>
-  <% @comments.each do |comment| %>
+  <% post.comments.each do |comment| %>
   <p><%= comment.body %></p>
 
 <% end %>
@@ -22,5 +23,6 @@
     <%= button_to "Like", like_path(post.id), method: "put" %>
     <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>
   </div>
-  
+  <br /> <br />
 <% end %>
+</main>
