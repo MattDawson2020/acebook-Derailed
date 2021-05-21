@@ -10,17 +10,14 @@ class UsersController < ApplicationController
       flash[:newuser] = "You have created your account #{@user.name}"
     else
       flash[:emailerror] = "You cannot create an account"
+
       redirect_to "/signup"
     end
   end
 
-  # def index
-  #   @posts = Post.all
-  # end
-
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :email, :password_confirmation)
+    params.require(:user).permit(:name, :password, :email, :password_confirmation, :image)
   end
 end

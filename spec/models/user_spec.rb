@@ -18,4 +18,12 @@ RSpec.describe User, type: :model do
       expect(user.email).to eq "user@email.com"
     end
   end
+
+  describe "#find_name" do
+    it "finds the user name by the id" do
+      user = User.create(name: "user", email: "user@email.com", password: "user_password")
+      expect(User.find_name(user.id)).to eq "user"
+    end
+  end
 end
+
