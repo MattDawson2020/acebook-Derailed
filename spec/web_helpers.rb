@@ -11,7 +11,7 @@ end
 
 def login
   visit "/"
-  fill_in "Email", with: "team@derailed.com"
-  fill_in "Password", with: "CKMMNTT"
+  fill_in "floatingInput", with: "team@derailed.com"
+  fill_in "floatingPassword", with: "CKMMNTT"
   click_button "Login"
 end
