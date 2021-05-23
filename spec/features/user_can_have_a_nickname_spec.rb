@@ -5,7 +5,7 @@ feature "User has nickname" do
     sign_up
     login
     visit "/profile"
-    click_button "Add nickname"
+    click_button "Edit Profile"
     fill_in "add_nickname", with: "Dog"
     click_button "Submit"
     visit "/posts"
