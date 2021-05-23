@@ -20,9 +20,13 @@ class UsersController < ApplicationController
 
   def add_nickname
     permitted = params.permit(:nickname)
+    p permitted[:nickname]
     user = User.find_by(id: session[:user_id])
-    user.update(permitted)
+    user.update(nickname: permitted[:nickname])
     p user
+    # user.save
+    # User.update(session[:user_id], permitted)
+    # p User.find_by(id: session[:user_id])
     redirect_to posts_path
   end
 

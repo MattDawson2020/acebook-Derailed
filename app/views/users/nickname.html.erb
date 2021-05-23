@@ -8,13 +8,12 @@
 </head>
 <body>
   <div>
-  <%= form_with(url: '/nickname/add', method: "put") do |form| %>
-  <%= form.label :nickname %>
-  <%= form.text_field :nickname, id: "add_nickname" %>
-  
-  <%= form.submit "Submit" %>
-<% end %>
-</div>
-  
+    <%= form_with(url: '/nickname/add', method: "put") do |form| %>
+      <%= form.label :nickname %>
+      <%= form.text_field :nickname, id: "add_nickname" %>
+      <%= form.submit "Submit" %>
+    <% end %>
+  </div>
+    
 </body>
 </html>

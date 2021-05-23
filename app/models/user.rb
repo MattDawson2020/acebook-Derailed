@@ -23,4 +23,6 @@ class User < ApplicationRecord
     user.name
   end
 
+
+
 end
