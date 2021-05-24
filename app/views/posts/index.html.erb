@@ -11,7 +11,7 @@
     <%else%>
       <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
     <%end%>
-    <%= user.name %>
+   <%= user.nickname ? user.nickname : user.name %>
   </p>
   <p><%= post.message %></p> <br>
   <div>
