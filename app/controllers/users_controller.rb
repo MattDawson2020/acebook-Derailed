@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def new
     @user = User.new
   end
@@ -22,7 +23,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to profile_path
+    redirect_to user_path(params[:id])
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private

@@ -1,0 +1,12 @@
+<%= "#{@user.name}'s profile" %>
+<p>
+  <%if @user.image.attached? %>
+    <%= image_tag @user.image, style: "width: 100px;" %>
+  <%else%>
+    <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
+  <%end%>
+  <%= @user.nickname ? @user.nickname : @user.name %>
+</p>
+
+
+<%= button_to "Edit Profile", edit_user_path(@user.id), method: 'get' %>
