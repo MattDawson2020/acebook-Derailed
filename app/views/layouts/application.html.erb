@@ -11,9 +11,9 @@
   </head>
 
   <body>
-    
-    <%= render 'layouts/navigation'%>
-
+    <header>
+      <%= render 'layouts/navigation'%>
+    </header>
 
   <% flash.keys.each do |type| %>
     <div data-alert class="flash <%= type %> alert-box radius">
@@ -24,10 +24,9 @@
 
     <%= yield %>
 
-
-  <footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
-      <span class="text-muted">&copy; DeRailed &nbsp;-&nbsp; Blue March 2021</span>
+  <footer>
+    <div class="credits">
+      <p>&copy; DeRailed &nbsp;-&nbsp; Blue March 2021</p>
     </div>
   </footer>
     

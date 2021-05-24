@@ -14,8 +14,25 @@
  *= require_self
  */
 
- .credit{
-     display: flex;
-     justify-content: center;
-     align-items: center;
+ #derailed-nav {
+   position: fixed;
+   top: 0;
+   width: 100%
  }
+
+ main {
+   margin-top: 80px;
+ }
+ 
+ footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 3.5rem;
+  font-family: 'Play', sans-serif;
+  
+  background-color: white;
+}
