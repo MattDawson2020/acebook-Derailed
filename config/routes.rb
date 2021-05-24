@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get '/profile', to: 'users#index', as: 'profile'
-  get '/nickname', to: 'users#nickname', as: 'nickname'
-  put '/nickname/add', to: 'users#add_nickname'
   root to: "pages#home"
   resources :posts
   resources :users
