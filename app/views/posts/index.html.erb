@@ -1,7 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/42cdd50c56.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
 <main>
 
 <% @posts.each do |post| %>
-  <p>
+<div class="post-feed">
+  <p class="user-features">
     <% user = User.find(post.user_id) %>
     <%if user.image.attached? %>
       <%= image_tag user.image, style: "width: 20px;" %>
@@ -10,23 +21,37 @@
     <%end%>
    <%= user.nickname ? user.nickname : user.name %>
   </p>
-  <p><%= post.message %></p> <br>
+  
   <div>
     <%if post.post_image.attached? %>
       <%= image_tag post.post_image, style: "width: 100px; height: 100px;" %>
     <%end%>
   </div>
-   <%= link_to new_comment_path(post) do %>
-    New comment
-  <% end %>
+
+  <p><%= post.message %></p> <br>
+
+    <div class="like-and-comment-btn">
+      <%= link_to like_path(post.id), method: "put", class: "like-link" do %> 
+        <i class="far fa-heart"></i>
+      <% end %>
+      <%= link_to new_comment_path(post), class: "comment-link" do %>
+        <i class="far fa-comment"></i>
+      <% end %>
+  </div>
+   
   <% post.comments.each do |comment| %>
   <p><%= comment.body %></p>
 
 <% end %>
   <div>
-    <%= button_to "Like", like_path(post.id), method: "put" %>
+    
     <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>
   </div>
   <br /> <br />
+
+  </div>
 <% end %>
 </main>
+  
+</body>
+</html>

@@ -6,8 +6,9 @@ feature "User displays picture" do
     login
     click_link("New post")
     fill_in("Message", with: "Hello")
+    save_and_open_page
     click_button("Submit")
-    expect(page).to have_content("teamDerailed")
+    expect(page).to have_content("0")
   end
 
   scenario "a user's display picture appears next to post" do

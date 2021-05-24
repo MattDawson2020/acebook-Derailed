@@ -7,11 +7,13 @@
   <title>Document</title>
 </head>
 <body>
+<main>
   <%= form_with model: @user, local: true do |form| %>
     <%= form.label :nickname %>
     <%= form.text_field :nickname, id: "add_nickname" %>
     <%= form.submit "Submit" %>
   <% end %>
   
+  </main>
 </body>
 </html>

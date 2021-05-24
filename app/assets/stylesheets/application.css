@@ -20,6 +20,14 @@
    width: 100%
  }
 
+ .post-feed {
+   background-color: lightcyan;
+   margin-bottom: 10px;
+   max-width: 45vw;
+   width: 30vw;
+   
+ }
+
  main {
    margin-top: 80px;
  }
