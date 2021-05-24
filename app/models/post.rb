@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-  has_many :comments 
-  
+  has_many :comments
+
   has_one_attached :post_image
 
   def self.like(postId)

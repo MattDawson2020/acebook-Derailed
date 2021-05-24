@@ -12,7 +12,7 @@
   <p><%= post.message %></p> <br>
   <div><%= image_tag post.post_image, style: "width: 100px; height: 100px;" if post.post_image.attached? %></div>
   <span><%= post.created_at.strftime("Posted at %H:%M on %a %b %Y") %></span> <br />
-   <%= link_to new_comment_path do %>
+   <%= link_to new_comment_path(post) do %>
     New comment
   <% end %>
   <% post.comments.each do |comment| %>
