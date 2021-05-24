@@ -1,20 +1,18 @@
 class CommentsController < ApplicationController
-  
   def new
     @comment = Comment.new
+    @user = User.find_by(params[:user_id])
+    @post = Post.find_by(id: params[:format])
   end
 
   def create
-    # @user = User.find(id: session[:user_id])
-    # this is needed later to insert user id in comment
-    @comment = Comment.create(user_params)
+    @comment = Comment.create(comment_params)
     redirect_to posts_url
   end
 
   private
 
-  def user_params
-    params.require(:comment).permit(:body)
+  def comment_params
+    params.require(:comment).permit(:body, :user_id, :post_id)
   end
-
 end
