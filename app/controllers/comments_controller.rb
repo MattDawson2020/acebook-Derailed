@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # this is needed later to insert user id in comment
     @comment = Comment.create(comment_params)
     redirect_to posts_url
   end
