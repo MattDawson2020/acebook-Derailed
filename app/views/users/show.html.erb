@@ -12,8 +12,6 @@
 <%= button_to "Edit Profile", edit_user_path(@user.id), method: 'get' %>
 
 
-
-
 <% @user.posts.each do |post| %>
   <p>
     <% user = User.find(post.user_id) %>
