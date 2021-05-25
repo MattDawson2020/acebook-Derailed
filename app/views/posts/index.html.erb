@@ -53,7 +53,7 @@
 
 
    <div class="row">
-   <% if post.comments.length > 1 %>
+   <% if post.comments.length > 2 %>
    <span class="view-all-com">View all <%= post.comments.length %> comments</span>
      <% post.comments.last(1).each do |comment| %>
       <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %>  </b><%= comment.body %></p>
