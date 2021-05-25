@@ -11,7 +11,8 @@ feature "comments" do
     fill_in "Message", with: "Hello, world!"
     click_button "Submit"
     
-    click_link "New comment"
+    # click_link "New comment"
+    first(:css, ".comment-link").click
     fill_in "Body", with: "Hello, thing!"
     click_button "Submit"
 

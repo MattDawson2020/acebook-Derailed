@@ -1,42 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/42cdd50c56.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
 <main>
-<%= link_to new_post_path do %>
-  New post
-<% end %>
 
 <% @posts.each do |post| %>
-  <p>
+<div class="post-feed container">
+
+<div class="row">
+
+  <p class="user-features">
+  <div class="col-2">
     <% user = User.find(post.user_id) %>
-    <%if user.image.attached? %>
-      <%= image_tag user.image, style: "width: 20px;" %>
-    <%else%>
-      <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
-    <%end%>
-   <%= user.nickname ? user.nickname : user.name %>
+    <% if user.image.attached? %>
+      <%= image_tag user.image %>
+    <% else %>
+      <%= image_tag "default-image.jpeg" %>
+    <% end %>
+     </div>
+    <div class="col-10">
+   <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
+    </div>
   </p>
-  <p><%= post.message %></p> <br>
-  <div>
-    <%if post.post_image.attached? %>
-      <%= image_tag post.post_image, style: "width: 100px; height: 100px;" %>
-    <%end%>
+</div>
+
+<div class="caption-text row"><p><%= post.message %></p> <br></div> 
+
+  <div class="row pic-image"> 
+    <% if post.post_image.attached? %>
+      <%= image_tag post.post_image %>
+    <% end %>
   </div>
-   <%= link_to new_comment_path(post) do %>
-    New comment
-  <% end %>
-  <% post.comments.each do |comment| %>
-   <% comment_owner = User.find(comment.user_id) %>
-   <p><%= comment.body %> 
-    <%if comment_owner.image.attached? %>
-        <%= image_tag comment_owner.image, style: "width: 20px;" %>
-      <%else%>
-        <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
-      <%end%>
-        <%= comment_owner.nickname ? comment_owner.nickname : comment_owner.name %>
+
+  <div class="like-and-comment-btn row">
+    <div class="col-9">
+      <%= link_to like_path(post.id), method: "put", class: "like-link" do %> 
+        <i class="far fa-heart"></i><% end %>
+      <%= link_to new_comment_path(post), class: "comment-link" do %>
+        <i class="far fa-comment"></i>
       <% end %>
-    </p>
-  <div>
-    <%= button_to "Like", like_path(post.id), method: "put" %>
-    <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>
+    </div>
+      <div class="like-feat col-3">
+      <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
+       </div>
   </div>
-  <br /> <br />
+
+
+   <div class="row">
+   <% if post.comments.length > 2 %>
+   <span class="view-all-com">View all <%= post.comments.length %> comments</span>
+     <% post.comments.last(1).each do |comment| %>
+      <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %>  </b><%= comment.body %></p>
+      <% end %>
+   <% else %>
+    <% post.comments.each do |comment| %>
+    <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b>  <%= comment.body %></p>
+  <% end %>
+<% end %>
+</div>
+
+  </div>
 <% end %>
 </main>
+  
+</body>
+</html>
