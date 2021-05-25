@@ -29,7 +29,6 @@ RSpec.feature "Post_image", type: :feature do
   scenario "Can add a picture to the post" do
     sign_up
     login
-    # save_and_open_page
     click_link "New post"
     fill_in "Message", with: "Hello, world!"
     attach_file "Post_picture", (File.dirname(__FILE__) + "/images/Unknown.png")
