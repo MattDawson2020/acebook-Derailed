@@ -9,27 +9,24 @@
 <body>
 
   <main>
-    <div class="position-absolute top-50 start-50 translate-middle">
+  <div class='container loginBox'>
+    <div class="loginContents">
       <%= form_for(:session, url: login_path) do |form| %>
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-        <div class="form-floating" >
-          <%= form.label :email %>
-          <%= form.text_field :email, class: "form-control", id: "floatingInput", :placeholder => "Enter your email address" %>
-        </div>
-        <div class="form-floating">
-          <%= form.password_field :password, class: "form-control", id: "floatingPassword", :placeholder => "Password" %>
-        </div>
-
+        <h1 id='loginTitle'>Sign in</h1>
+          <%= form.text_field :email, class: "form-control loginEntry", id: "floatingInput", placeholder: "Email" %>
+          <%= form.password_field :password, class: "form-control loginEntry", id: "floatingPassword", placeholder: "Password" %>
         <div class="checkbox mb-3">
           <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <input type="checkbox" value="remember-me" id='remeberMeLabel'> Remember me
           </label>
-          <%= form.submit "Login", class: "w-100 btn btn-lg btn-primary" %>
+          <%= form.submit "Login", class: "w-100 btn btn-lg btn-primary loginBtn" %>
         </div>
       <% end %>
-       <%= link_to "Sign up", signup_path, class: "w-100 btn btn-lg btn-primary" %>
+      <div id='signUpButton'>
+        Don't have an account? <%= link_to "Sign up", signup_path, {id: 'signUpLink'} %>
+      </div>
     </div>
+  </div>
   </main>
 
 </body>

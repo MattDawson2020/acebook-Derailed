@@ -4,8 +4,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-
-  
 }
 
 footer{
@@ -46,4 +44,61 @@ footer{
 .user-buttons{
   padding: 20;
   margin: 20;
+}
+
+.loginBox {
+  border-style: none;
+  width: 400px;
+  height: 500px;
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 50px;
+  margin-bottom: auto;
+  padding: 70px;
+  box-shadow: 4px 4px 10px 4px #888888;
+}
+
+// .loginBox:hover {
+//   display: none;
+// }
+
+.loginEntry {
+  margin-bottom: 10px;
+}
+
+.loginBtn {
+  margin-top: 20px;
+  background-color: #1778f2;
+
+}
+
+.rememberMeLabel{
+  text-align: center;
+}
+
+#loginTitle{
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.loginContents{
+  position: relative;
+  width: 250px;
+  margin-top: 20px;
+}
+
+#signUpButton{
+  margin-top: 70px;
+  text-align: center;
+  color: grey;
+}
+
+#signUpLink{
+  color:grey;
+}
+
+#signUpLink:hover {
+  color:#1778F2;
+
 }

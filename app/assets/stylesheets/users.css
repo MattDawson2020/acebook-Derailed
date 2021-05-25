@@ -1,13 +1,14 @@
 .signupBox {
-    border-style: solid;
-    border-color: black;
+    border-style: none;
     width: 800px;
     height: 500px;
     position: relative;
-    background-color: greenyellow;
+    background-color: white;
     border-radius: 20px;
     margin-top: 50px;
     margin-bottom: auto;
+    padding: 10px;
+    box-shadow: 4px 4px 10px 4px #888888;
 }
 
 .signupLeft{
@@ -30,13 +31,11 @@ margin-bottom: 5px;
 }
 
 .signupButton{
-background-color: black;
-border-color: black;
-box-shadow: orange;
+background-color: #1778f2;
 }
 
 #signupTitle{
 margin-left: 30px;
-margin-top: 60px;
-
+margin-top: 50px;
 }
+
