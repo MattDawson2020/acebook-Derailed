@@ -12,7 +12,7 @@
              <% if session[:user_id] %>
               <li class="nav-item">
                 <% @current_user = User.find(session[:user_id])%>
-               <%= link_to "Profile", user_path(@current_user.id), class: "w-100 btn btn-lg btn-primary" %>
+               <%= link_to "Profile", user_path(@current_user.id), class: "nav-link" %>
               </li>
               <a class="nav-link" aria-current="page" href="/posts">Home</a>
               <% else  %>
