@@ -10,22 +10,22 @@
 </head>
 <body>
 <div class="container signupBox">
-<h1 id="signupTitle">Sign Up</h1>    
+<h1 id="signupTitle">Sign Up</h1>  
+  <%= form_for @user, {class: "row g-3"} do |form|%>  
     <div class="container signupLeft">
-      <%= form_for @user, {class: "row g-3"} do |form|%>
-      <%= form.text_field :name, class: "form-control col-md-6 signupEntry", placeholder: "Name"%>
-      <%= form.text_field :email, class: "form-control col-md-6 signupEntry", placeholder: "Email Address" %>
-      <%= form.password_field :password, class: "form-control col-md-6 signupEntry", placeholder: "Password" %>
-      <%= form.password_field :password_confirmation, class: "form-control col-md-6 signupEntry", placeholder: "Re-confirm password"%>
+      <%= form.text_field :name, id: 'signUpName', class: "form-control col-md-6 signupEntry", placeholder: "Name"%>
+      <%= form.text_field :email, id: 'signUpEmail', class: "form-control col-md-6 signupEntry", placeholder: "Email Address" %>
+      <%= form.password_field :password, id: 'signUpPassword', class: "form-control col-md-6 signupEntry", placeholder: "Password" %>
+      <%= form.password_field :password_confirmation, id: 'signUpPasswordConfirm', class: "form-control col-md-6 signupEntry", placeholder: "Re-confirm password"%>
       <br>
       <%= form.label :image, 'Display Picture' %>
       <%= form.file_field :image, class: "form-control col-md-6 signupEntry" %>
       <br>
     </div>
     <div class="container signupRight">
-      <%= form.submit "Create User", class: "form-control col-md-2 btn btn-lg btn-primary signupButton"%>
-      <% end %>
+      <%= form.submit "Create User", id: "signUpCreateBtn", class: "form-control col-md-2 btn btn-lg btn-primary signupButton"%>
     </div>
+  <% end %>
 </div> 
 </body>
 </html>
