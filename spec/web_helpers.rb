@@ -1,7 +1,6 @@
 def sign_up
   visit "/"
   click_link "Sign up"
-  # save_and_open_page
   fill_in "signUpName", with: "teamDerailed"
   fill_in "signUpEmail", with: "team@derailed.com"
   attach_file 'user_image', (File.dirname(__FILE__) + '/features/images/bob_ross_img.png')
