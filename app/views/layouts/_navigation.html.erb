@@ -14,7 +14,8 @@
               </li>
             
               <li class="nav-item">
-                  <a class="nav-link" href="#">Profile</a>
+                   <% @current_user = User.find(session[:user_id])%>
+               <%= link_to "Profile", user_path(@current_user.id), class: "nav-link" %>
               </li>
 
               <li class="nav-item">

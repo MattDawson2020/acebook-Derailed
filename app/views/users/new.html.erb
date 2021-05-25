@@ -5,27 +5,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Document</title>
 </head>
 <body>
 <main>
-<div>
-  <%= form_for @user do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.label :email %>
-  <%= form.text_field :email %>
-  <%= form.label :image, 'Display Picture' %>
-  <%= form.file_field :image %>
-  <%= form.label :password %>
-
-  <%= form.password_field :password, placeholder: "Enter 6 to 20 characters." %>
-   <%= form.label :password_confirmation %>
-  <%= form.password_field :password_confirmation %>
-
-  <%= form.submit "Create User" %>
-<% end %>
-</div>
+<div class="container signupBox">
+<h1 id="signupTitle">Sign Up</h1>    
+    <div class="container signupLeft">
+      <%= form_for @user, {class: "row g-3"} do |form|%>
+      <%= form.text_field :name, class: "form-control col-md-6 signupEntry", placeholder: "Name"%>
+      <%= form.text_field :email, class: "form-control col-md-6 signupEntry", placeholder: "Email Address" %>
+      <%= form.password_field :password, class: "form-control col-md-6 signupEntry", placeholder: "Password" %>
+      <%= form.password_field :password_confirmation, class: "form-control col-md-6 signupEntry", placeholder: "Re-confirm password"%>
+      <br>
+      <%= form.label :image, 'Display Picture' %>
+      <%= form.file_field :image, class: "form-control col-md-6 signupEntry" %>
+      <br>
+    </div>
+    <div class="container signupRight">
+      <%= form.submit "Create User", class: "form-control col-md-2 btn btn-lg btn-primary signupButton"%>
+      <% end %>
+    </div>
+</div> 
 </main>
 </body>
 </html>

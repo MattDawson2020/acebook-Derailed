@@ -1,41 +1,57 @@
 
-main{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
+.loginBox {
+  border-style: none;
+  width: 400px;
+  height: 500px;
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 50px;
+  margin-bottom: auto;
+  padding: 70px;
+  box-shadow: 4px 4px 10px 4px #888888;
 
-  
 }
 
-.form-signin {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: auto;
-}
+// .loginBox:hover {
+//   display: none;
+// }
 
-.form-signin .checkbox {
-  font-weight: 400;
-}
-
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
-
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
+.loginEntry {
   margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
-.user-buttons{
-  padding: 20;
-  margin: 20;
+.loginBtn {
+  margin-top: 20px;
+  background-color: #1778f2;
+
+}
+
+.rememberMeLabel{
+  text-align: center;
+}
+
+#loginTitle{
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.loginContents{
+  position: relative;
+  width: 250px;
+  margin-top: 20px;
+}
+
+#signUpButton{
+  margin-top: 70px;
+  text-align: center;
+  color: grey;
+}
+
+#signUpLink{
+  color:grey;
+}
+
+#signUpLink:hover {
+  color:#1778F2;
 }
