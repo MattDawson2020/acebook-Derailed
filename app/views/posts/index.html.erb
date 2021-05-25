@@ -26,7 +26,6 @@
      </div>
     <div class="col-10">
    <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
-    <%= link_to "delete", post, method: "delete", data: {confirm: "Are you sure?"} %>
     </div>
   </p>
 </div>
@@ -47,13 +46,21 @@
         <i class="far fa-comment"></i>
       <% end %>
     </div>
-      <div class="like-feat col-3">
+      <div class="like-feat col-2">
       <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
+       </div>
+        <div class="like-feat col-1">
+      <% if post.user_id == session[:user_id] %>
+ <%= link_to(post, method: "delete", data: { confirm: "Are you sure?" }, class: "del-link") do %>
+ <i class="far fa-trash-alt"></i>
+ <% end %>
+ <% end %>
        </div>
   </div>
 
 
    <div class="row">
+   <div class="col-10">
    <% if post.comments.length > 2 %>
    <span class="view-all-com">View all <%= post.comments.length %> comments</span>
      <% post.comments.last(1).each do |comment| %>
@@ -64,6 +71,7 @@
     <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b>  <%= comment.body %></p>
   <% end %>
 <% end %>
+</div>
 </div>
 
   </div>

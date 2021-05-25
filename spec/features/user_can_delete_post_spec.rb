@@ -7,7 +7,7 @@ feature "User can delete a post" do
     click_link "New post"
     fill_in "Message", with: "Hello, world!"
     click_button "Submit"
-    click_link "delete"
+    first(:css, ".del-link").click
     expect(page).not_to have_content "Hello, world!"
   end
 end
