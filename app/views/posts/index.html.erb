@@ -8,13 +8,30 @@
   <title>Document</title>
 </head>
 <body>
+<% if session[:user_id] %>
+<% current_user = User.find(session[:user_id])%>
+<%end%>
   <main>
   <div class="container-fluid">
   <div class="row">
-    <div class="col">
-  
+    <div class="col one">
+      <div class="container profile-card">
+        <div class="row">
+          <div class="col-4">
+            <% if current_user.image.attached? %>
+              <%= image_tag current_user.image %>
+            <% else %>
+              <%= image_tag "default-image.jpeg" %>
+            <% end %>
+          </div>
+          <div class="col-8 profile-card-names">
+            <h4><%= current_user.nickname%></h4>
+            <h6><%= current_user.name%></h6>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-6 post-feed">
+    <div class="col-5 two post-feed">
       <% @posts.each do |post| %>
         <div class="container post-card">
           <div class="row">
@@ -70,7 +87,7 @@
         </div>
       <% end %>
     </div>
-    <div class="col">
+    <div class="col three">
     
     </div>
   </div>

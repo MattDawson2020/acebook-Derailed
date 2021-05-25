@@ -19,6 +19,8 @@
   }
 
   main {
+    max-width: 80%;
+    margin: 0 auto;
     margin-top: 80px;
   }
   
@@ -28,8 +30,36 @@
    width: 100%;
   }
 
- .post-feed {
-  margin-bottom: 60px;
+  .profile-card {
+    background-color: white;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    max-width: 450px;
+  }
+
+  .profile-card img{
+    vertical-align: middle;
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+    padding-right: 0;
+  }
+
+  .profile-card-names{
+    line-height: 30px;
+    padding-top: 15px;
+  }
+
+  .profile-card-names h6 {
+    color: #999;
+  }
+
+  .post-feed {
+    margin-bottom: 60px;
+    overflow: auto;
   }
 
   .post-card {
@@ -39,7 +69,7 @@
     padding-bottom: 20px;
     margin-bottom: 30px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    max-width: 600px;
+    max-width: 700px;
   }
 
   .user-features {
@@ -67,6 +97,7 @@
 
   .post-username {
     font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 900;
   }
 
   .time-ago, .view-all-com {
@@ -75,11 +106,13 @@
   }
 
   .caption-text {
+    font-family: 'Source Sans Pro', sans-serif; 
     font-weight: 400;
-     font-family: 'Source Sans Pro', sans-serif; 
   }
 
   .pic-image{
+      max-width: 600px;
+      margin: 0 auto;
       margin-bottom: 7px;
   }
 
