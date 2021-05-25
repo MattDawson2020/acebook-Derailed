@@ -8,66 +8,73 @@
   <title>Document</title>
 </head>
 <body>
-<main>
-
-<% @posts.each do |post| %>
-<div class="post-feed container">
-
-<div class="row">
-
-  <p class="user-features">
-  <div class="col-2">
-    <% user = User.find(post.user_id) %>
-    <% if user.image.attached? %>
-      <%= image_tag user.image %>
-    <% else %>
-      <%= image_tag "default-image.jpeg" %>
-    <% end %>
-     </div>
-    <div class="col-10">
-   <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
-    </div>
-  </p>
-</div>
-
-<div class="caption-text row"><p><%= post.message %></p> <br></div> 
-
-  <div class="row pic-image"> 
-    <% if post.post_image.attached? %>
-      <%= image_tag post.post_image %>
-    <% end %>
-  </div>
-
-  <div class="like-and-comment-btn row">
-    <div class="col-9">
-      <%= link_to like_path(post.id), method: "put", class: "like-link" do %> 
-        <i class="far fa-heart"></i><% end %>
-      <%= link_to new_comment_path(post), class: "comment-link" do %>
-        <i class="far fa-comment"></i>
-      <% end %>
-    </div>
-      <div class="like-feat col-3">
-      <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
-       </div>
-  </div>
-
-
-   <div class="row">
-   <% if post.comments.length > 2 %>
-   <span class="view-all-com">View all <%= post.comments.length %> comments</span>
-     <% post.comments.last(1).each do |comment| %>
-      <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %>  </b><%= comment.body %></p>
-      <% end %>
-   <% else %>
-    <% post.comments.each do |comment| %>
-    <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b>  <%= comment.body %></p>
-  <% end %>
-<% end %>
-</div>
-
-  </div>
-<% end %>
-</main>
+  <main>
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col">
   
+    </div>
+    <div class="col-6 post-feed">
+      <% @posts.each do |post| %>
+        <div class="container post-card">
+          <div class="row">
+            <p class="user-features">
+            <div class="col-2 user-icon">
+              <% user = User.find(post.user_id) %>
+              <% if user.image.attached? %>
+                <%= image_tag user.image %>
+              <% else %>
+                <%= image_tag "default-image.jpeg" %>
+              <% end %>
+              </div>
+              <div class="col-10 post-info">
+            <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
+              </div>
+            </p>
+          </div>
+
+          <div class="caption-text row"><p><%= post.message %></p> <br></div> 
+
+          <div class="row pic-image"> 
+            <% if post.post_image.attached? %>
+              <%= image_tag post.post_image %>
+            <% end %>
+          </div>
+
+          <div class="like-and-comment-btn row">
+            <div class="col-9">
+              <%= link_to like_path(post.id), method: "put", class: "like-link" do %> 
+                <i class="far fa-heart"></i><% end %>
+              <%= link_to new_comment_path(post), class: "comment-link" do %>
+                <i class="far fa-comment"></i>
+              <% end %>
+            </div>
+              <div class="like-feat col-3">
+              <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
+              </div>
+          </div>
+
+
+          <div class="row">
+            <% if post.comments.length > 2 %>
+            <span class="view-all-com">View all <%= post.comments.length %> comments</span>
+              <% post.comments.last(1).each do |comment| %>
+                <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %>  </b><%= comment.body %></p>
+                <% end %>
+            <% else %>
+              <% post.comments.each do |comment| %>
+                <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b>  <%= comment.body %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col">
+    
+    </div>
+  </div>
+  </div>
+  </main>
 </body>
 </html>
