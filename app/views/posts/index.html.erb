@@ -26,6 +26,7 @@
      </div>
     <div class="col-10">
    <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
+    <%= link_to "delete", post, method: "delete", data: {confirm: "Are you sure?"} %>
     </div>
   </p>
 </div>
