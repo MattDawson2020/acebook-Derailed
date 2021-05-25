@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   describe 'Creating comments' do
     let(:user) { User.create(name: 'user', email: 'user@email.com', password: 'user_password') }
-    let(:post) { Post.create(message: "What up") }
+    let(:post) { Post.create(message: "What up", user_id: user.id) }
 
     it 'can create a comment' do
       Comment.create(body: "Howdy", user_id: user.id, post_id: post.id)

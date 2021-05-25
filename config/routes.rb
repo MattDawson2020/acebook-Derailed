@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   put "/post/:id/like", to: "posts#like", as: "like"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  get '/profile', to: 'users#index', as: 'profile'
+  # get '/profile', to: 'users#index', as: 'profile'
   root to: "pages#home"
   resources :posts
   resources :users

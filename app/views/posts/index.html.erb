@@ -23,9 +23,16 @@
     New comment
   <% end %>
   <% post.comments.each do |comment| %>
-  <p><%= comment.body %></p>
-
-<% end %>
+   <% comment_owner = User.find(comment.user_id) %>
+   <p><%= comment.body %> 
+    <%if comment_owner.image.attached? %>
+        <%= image_tag comment_owner.image, style: "width: 20px;" %>
+      <%else%>
+        <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
+      <%end%>
+        <%= comment_owner.nickname ? comment_owner.nickname : comment_owner.name %>
+      <% end %>
+    </p>
   <div>
     <%= button_to "Like", like_path(post.id), method: "put" %>
     <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>

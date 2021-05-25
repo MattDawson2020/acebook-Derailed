@@ -4,7 +4,7 @@ feature "User has nickname" do
   scenario "nickname can be displayed instead of name" do
     sign_up
     login
-    visit "/profile"
+    click_link "Profile"
     click_button "Edit Profile"
     fill_in "add_nickname", with: "Dog"
     click_button "Submit"
