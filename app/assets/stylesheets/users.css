@@ -1,0 +1,41 @@
+.signupBox {
+    border-style: none;
+    width: 800px;
+    height: 500px;
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-bottom: auto;
+    padding: 10px;
+    box-shadow: 4px 4px 10px 4px #888888;
+}
+
+.signupLeft{
+position: absolute;
+left: 30px;
+width: 60%;
+margin-top: 20px;
+}
+
+.signupRight{
+position: absolute;
+right: 30px;
+width: 30%;
+text-align: center;
+margin-top: 120px;
+}
+
+.signupEntry{
+margin-bottom: 5px;
+}
+
+.signupButton{
+background-color: #1778f2;
+}
+
+#signupTitle{
+margin-left: 30px;
+margin-top: 50px;
+}
+
