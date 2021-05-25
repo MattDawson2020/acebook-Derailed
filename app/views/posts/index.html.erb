@@ -11,43 +11,59 @@
 <main>
 
 <% @posts.each do |post| %>
-<div class="post-feed">
+<div class="post-feed container">
+
+<div class="row">
+
   <p class="user-features">
+  <div class="col-2">
     <% user = User.find(post.user_id) %>
-    <%if user.image.attached? %>
-      <%= image_tag user.image, style: "width: 20px;" %>
-    <%else%>
-      <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
-    <%end%>
-   <%= user.nickname ? user.nickname : user.name %>
+    <% if user.image.attached? %>
+      <%= image_tag user.image %>
+    <% else %>
+      <%= image_tag "default-image.jpeg" %>
+    <% end %>
+     </div>
+    <div class="col-10">
+   <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
+    </div>
   </p>
-  
-  <div>
-    <%if post.post_image.attached? %>
-      <%= image_tag post.post_image, style: "width: 100px; height: 100px;" %>
-    <%end%>
+</div>
+
+<div class="caption-text row"><p><%= post.message %></p> <br></div> 
+
+  <div class="row pic-image"> 
+    <% if post.post_image.attached? %>
+      <%= image_tag post.post_image %>
+    <% end %>
   </div>
 
-  <p><%= post.message %></p> <br>
-
-    <div class="like-and-comment-btn">
+  <div class="like-and-comment-btn row">
+    <div class="col-9">
       <%= link_to like_path(post.id), method: "put", class: "like-link" do %> 
-        <i class="far fa-heart"></i>
-      <% end %>
+        <i class="far fa-heart"></i><% end %>
       <%= link_to new_comment_path(post), class: "comment-link" do %>
         <i class="far fa-comment"></i>
       <% end %>
+    </div>
+      <div class="like-feat col-3">
+      <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
+       </div>
   </div>
-   
-  <% post.comments.each do |comment| %>
-  <p><%= comment.body %></p>
 
+
+   <div class="row">
+   <% if post.comments.length > 1 %>
+   <span class="view-all-com">View all <%= post.comments.length %> comments</span>
+     <% post.comments.last(1).each do |comment| %>
+      <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %>  </b><%= comment.body %></p>
+      <% end %>
+   <% else %>
+    <% post.comments.each do |comment| %>
+    <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b>  <%= comment.body %></p>
+  <% end %>
 <% end %>
-  <div>
-    
-    <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>
-  </div>
-  <br /> <br />
+</div>
 
   </div>
 <% end %>
