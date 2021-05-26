@@ -29,6 +29,14 @@
    top: 0;
    width: 100%;
   }
+  
+  .nav-item:hover{
+    background-color: #5DA6FB;
+  }
+  
+  .logo img{
+    max-height: 40px;
+  }
 
   .profile-card {
     background-color: white;
@@ -36,8 +44,10 @@
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 30px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    
+    box-shadow: rgba(86, 162, 250, 0.4) 0px 5px, rgba(86, 162, 250, 0.3) 0px 10px, rgba(86, 162, 250, 0.2) 0px 15px, rgba(86, 162, 250, 0.1) 0px 20px, rgba(86, 162, 250, 0.05) 0px 25px;
     max-width: 450px;
+    
   }
 
   .profile-card img{
@@ -54,7 +64,7 @@
   }
 
   .profile-card-names h6 {
-    color: #999;
+    color: #62D1B6;
   }
 
   .post-feed {
@@ -101,7 +111,7 @@
   }
 
   .time-ago, .view-all-com {
-    color: #999;
+    color: #62D1B6;
     font-size: 10px;
   }
 
