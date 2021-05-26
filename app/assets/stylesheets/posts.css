@@ -3,7 +3,8 @@
 }
 
 #new_post_user_icon img{
-  max-width:100%;
+  width:100%;
+  max-width: 50px;
   height: auto;
   border-radius: 50%;
   position: absolute;
@@ -17,7 +18,8 @@
 
 
 #profile_card_img_div img{
-  max-width:100%;
+  width:100%;
+  max-width: 85px;
   height: auto;
   border-radius: 50%;
   position: absolute;
@@ -29,9 +31,11 @@
 }
 
 .user-icon img{
-  max-width:100%;
+  width:100%;
+  max-width: 50px;
   height: auto;
   position: absolute;
+  border-radius: 50%;
 }
 
 .user-icon{
