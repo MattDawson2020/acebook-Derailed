@@ -69,13 +69,38 @@
     font-weight: 400;
      font-family: 'Source Sans Pro', sans-serif; 
  }
+ 
+
 
  i {
      margin-right: 4px;
+     
  }
+
+
  .far {
      font-size: larger;
+     
  }
+
+ .del-link{
+    font-size: small;
+    color: #999;
+    display: flex;
+    justify-content: flex-end;
+ }
+
+ .like-link, .comment-link {
+    color: #393e46;
+ }
+
+ .like-link:hover, .comment-link:hover {
+    color: #5aa897;
+ }
+
+ .del-link:hover {
+     color: tomato;
+}
 
  main {
    margin-top: 80px;
