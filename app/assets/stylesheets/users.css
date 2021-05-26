@@ -85,6 +85,12 @@ width: 60%;
   margin-left: 15%;
 }
 
+.edit-button{
+    display: flex;
+    justify-content: right; 
+    text-decoration: none;
+}
+
 
 
 

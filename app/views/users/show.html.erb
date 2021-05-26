@@ -35,9 +35,12 @@
               <br>
               <%= "Email: #{@user.email}" %>
             </div>
-            <div class="row">
-              <%= link_to edit_user_path(@user.id), method: 'get', class: "edit-button", id: "Edit Profile" do %>
-              <i class="fas fa-wrench"></i><% end%>
+            <div class="row edit-div">
+            <div class="col-10"></div>
+              <div class="col-1">
+                <%= link_to edit_user_path(@user.id), method: 'get', class: "col-1 edit-button", id: "Edit Profile" do %>
+                <i class="fas fa-wrench"></i><% end%>
+              </div>
             </div>
           </div>
         </div>
