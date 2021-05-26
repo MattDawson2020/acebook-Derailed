@@ -1,40 +1,80 @@
-<%= "#{@user.name}'s profile" %>
-<p>
-  <%if @user.image.attached? %>
-    <%= image_tag @user.image, style: "width: 100px;" %>
-  <%else%>
-    <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
-  <%end%>
-  <%= @user.nickname ? @user.nickname : @user.name %>
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </html><script src="https://kit.fontawesome.com/42cdd50c56.js" crossorigin="anonymous"></script>
+
+  <title>Document</title>
+</head>
+<body>
+  
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col one"> 
+          <div class="container profile-window">
+            <div class="row">
+            <div class="col-4">
+              <% if current_user.image.attached? %>
+                <%= image_tag current_user.image %>
+              <% else %>
+                <%= image_tag "default-image.jpeg" %>
+              <% end %>
+            </div>
+            <div class="col-8 profile-window-names">
+              <h4><%= current_user.nickname %></h4>
+              <h6><%= current_user.name %></h6>
+            </div>
+          </div>
+            <div class="row profile-details">
+              <%= "Name: #{@user.name}" %>
+              <br>
+              <%= "Nickname: #{@user.nickname}" if @user.nickname %>
+              <br>
+              <%= "Email: #{@user.email}" %>
+            </div>
+            <div class="row">
+              <%= link_to edit_user_path(@user.id), method: 'get', class: "edit-button", id: "Edit Profile" do %>
+              <i class="fas fa-wrench"></i><% end%>
+            </div>
+          </div>
+        </div>
+
+          <%= "#{@user.name}'s profile" %>
 
 
-<%= button_to "Edit Profile", edit_user_path(@user.id), method: 'get' %>
+        <div class="col">
+          <% @user.posts.each do |post| %>
+            <p>
+              <% user = User.find(post.user_id) %>
+              <%if user.image.attached? %>
+                <%= image_tag user.image, style: "width: 20px;" %>
+              <%else%>
+                <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
+              <%end%>
+            <%= user.nickname ? user.nickname : user.name %>
+            </p>
+            <p><%= post.message %></p> <br>
+            <div>
+              <%if post.post_image.attached? %>
+                <%= image_tag post.post_image, style: "width: 100px; height: 100px;" %>
+              <%end%>
+            </div>
+            
+            <% post.comments.each do |comment| %>
+            <p><%= comment.body %></p>
 
-
-<% @user.posts.each do |post| %>
-  <p>
-    <% user = User.find(post.user_id) %>
-    <%if user.image.attached? %>
-      <%= image_tag user.image, style: "width: 20px;" %>
-    <%else%>
-      <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
-    <%end%>
-   <%= user.nickname ? user.nickname : user.name %>
-  </p>
-  <p><%= post.message %></p> <br>
-  <div>
-    <%if post.post_image.attached? %>
-      <%= image_tag post.post_image, style: "width: 100px; height: 100px;" %>
-    <%end%>
-  </div>
-   
-  <% post.comments.each do |comment| %>
-  <p><%= comment.body %></p>
-
-<% end %>
-  <div>
-    <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>
-  </div>
-  <br /> <br />
-<% end %>
+          <% end %>
+            <div>
+              <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>
+            </div>
+            <br /> <br />
+          <% end %>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </main>
+</body>
