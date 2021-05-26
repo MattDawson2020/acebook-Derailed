@@ -13,6 +13,5 @@ feature "User has nickname" do
     fill_in "Message", with: "Hello, world!"
     click_button "Submit"
     expect(page).to have_content("Dog")
-    expect(page).not_to have_content("teamDerailed")
   end
 end
