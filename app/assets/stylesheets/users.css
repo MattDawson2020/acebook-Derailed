@@ -81,8 +81,12 @@ width: 60%;
     color: #62d1b6;
 }
 
-.profile-details{
-  margin-left: 15%;
+.profile-details h6{
+    color: #62d1b6;
+}
+
+.right-col{
+    padding: 0%;
 }
 
 .edit-button{
