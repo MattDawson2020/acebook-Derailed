@@ -86,7 +86,7 @@ input[type='file'] {
   background-color: #0d6efd;
   border: 1px solid #0d6efd;
   border-radius: .3rem;
-  width: 90%;
+  width: 100%;
   height: 33px;
   outline: none;
   white-space: nowrap;
@@ -99,4 +99,10 @@ input[type='file'] {
 .custom-file-input:hover::before {
   background-color: #095fdf;
   transition-duration: 0.15s, 0.15s, 0.15s, 0.15s;
+}
+
+#new_post_img_prev {
+  height: 30px;
+  width: auto;
+  margin-left: -50px;
 }

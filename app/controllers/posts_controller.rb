@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    p params
     @post = Post.create(message: post_params, user_id: session[:user_id])
     @post.post_image.attach(params[:post][:post_image])
     redirect_to posts_url
