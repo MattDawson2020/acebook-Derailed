@@ -88,8 +88,7 @@
 
   .user-icon {
     padding-right: 0;
-    position: relative;
-    left: 10px;
+    
   }
   
   .user-icon img {
@@ -100,10 +99,6 @@
     padding-right: 0;
   }
 
-  .post-info {
-    position: relative;
-    left: -20px;
-  }
 
   .post-username {
     font-family: 'Source Sans Pro', sans-serif;

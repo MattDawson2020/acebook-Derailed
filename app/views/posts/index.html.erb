@@ -9,8 +9,8 @@
 </head>
 <body>
 <% if session[:user_id] %>
-<% current_user = User.find(session[:user_id])%>
-<%end%>
+<% current_user = User.find(session[:user_id]) %>
+<% end %>
   <main>
   <div class="container-fluid">
   <div class="row">
@@ -25,8 +25,8 @@
             <% end %>
           </div>
           <div class="col-8 profile-card-names">
-            <h4><%= current_user.nickname%></h4>
-            <h6><%= current_user.name%></h6>
+            <h4><%= current_user.nickname %></h4>
+            <h6><%= current_user.name %></h6>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@
            <% end %>
            <% end %>
       </div>
-     </div>
+   
           </div>
 
 
