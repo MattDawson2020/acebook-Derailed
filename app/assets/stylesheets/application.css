@@ -130,6 +130,7 @@
       margin-right: 4px;
   }
 
+
   .far {
       font-size: larger;
   }
@@ -139,7 +140,38 @@
       font-family: 'Source Sans Pro', sans-serif;
   }
 
-  footer {
+  
+
+ .caption-text {
+    font-weight: 400;
+     font-family: 'Source Sans Pro', sans-serif; 
+ }
+ 
+
+
+ .del-link{
+    font-size: small;
+    color: #999;
+    display: flex;
+    justify-content: flex-end;
+ }
+
+ .like-link, .comment-link {
+    color: #393e46;
+ }
+
+ .like-link:hover, .comment-link:hover {
+    color: #5aa897;
+ }
+
+ .del-link:hover {
+     color: tomato;
+}
+
+
+ 
+ footer {
+
   display: flex;
   justify-content: center;
   align-items: flex-end;

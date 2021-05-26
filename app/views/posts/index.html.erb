@@ -66,9 +66,17 @@
                 <i class="far fa-comment"></i>
               <% end %>
             </div>
-              <div class="like-feat col-3">
-              <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
-              </div>
+             <div class="like-feat col-2">
+         <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
+       </div>
+        <div class="like-feat col-1">
+      <% if post.user_id == session[:user_id] %>
+       <%= link_to(post, method: "delete", data: { confirm: "Are you sure?" }, class: "del-link") do %>
+       <i class="far fa-trash-alt"></i>
+           <% end %>
+           <% end %>
+      </div>
+     </div>
           </div>
 
 
@@ -87,10 +95,18 @@
         </div>
       <% end %>
     </div>
+
     <div class="col three">
     
     </div>
   </div>
+
+   
+
+
+  
+
+
   </div>
   </main>
 </body>
