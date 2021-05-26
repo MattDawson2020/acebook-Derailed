@@ -5,7 +5,7 @@
     position: relative;
     background-color: white;
     border-radius: 20px;
-    margin-top: 50px;
+    margin-top: 180px;
     margin-bottom: auto;
     padding: 10px;
     box-shadow: 4px 4px 10px 4px #888888;
@@ -39,3 +39,15 @@ margin-left: 30px;
 margin-top: 50px;
 }
 
+#img_prev{
+position: absolute;
+height: 100px;
+width: auto;
+max-width: 157px;
+left: 310px;
+bottom: 1px;
+}
+
+#signUpDisplayPic{
+width: 60%;
+}
