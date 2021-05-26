@@ -9,7 +9,6 @@
 </head>
 <body>
 <% if session[:user_id] %>
-<% current_user = User.find(session[:user_id]) %>
 <% end %>
   <main>
   <div class="container-fluid">
@@ -17,47 +16,61 @@
     <div class="col one">
       <div class="container profile-card">
         <div class="row">
-          <div class="col-4">
-            <% if current_user.image.attached? %>
-              <%= image_tag current_user.image %>
+          <div id='profile_card_img_div' class="col-4">
+            <% if @current_user.image.attached? %>
+              <%= image_tag @current_user.image %>
             <% else %>
               <%= image_tag "default-image.jpeg" %>
             <% end %>
           </div>
           <div class="col-8 profile-card-names">
-            <h4><%= current_user.nickname %></h4>
-            <h6><%= current_user.name %></h6>
+            <h4><%= @current_user.nickname %></h4>
+            <h6><%= @current_user.name %></h6>
           </div>
         </div>
       </div>
     </div>
     <div class="col-5 two post-feed">
-      <div id='posts_bar'>
-        <%= form_for @post do |form| %>
-          <%= form.text_field :message %>
-          <%= form.file_field :post_image, id: "Post_picture" %>
-          <%= form.submit "Submit" %>
-        <% end %>
+      <div id='new_post_bar' class="container post-card " >
+        <div class='row'>
+          <div id='new_post_user_icon' class="col-2">
+            <% if @current_user.image.attached? %>
+              <%= image_tag @current_user.image %>
+            <% else %>
+              <%= image_tag "default-image.jpeg" %>
+            <% end %>
+          </div>
+          <div id='new_post_form_div' class="col-10">
+            <%= form_for @post, {id: "new_post_form"} do |form| %>
+              <%= form.text_field :message, id: "new_post_message", placeholder: "What's new, #{@current_user.display_name}?" %>
+              <%= form.file_field :post_image, id: "Post_picture" %>
+              <%= form.submit "Submit", id: "new_post_submit" %>
+            <% end %>
+          </div>
+        </div>
+        
       </div>
       <% @posts.each do |post| %>
         <div class="container post-card">
           <div class="row">
             <p class="user-features">
-            <div class="col-2 user-icon">
-              <% user = User.find(post.user_id) %>
-              <% if user.image.attached? %>
-                <%= image_tag user.image %>
-              <% else %>
-                <%= image_tag "default-image.jpeg" %>
-              <% end %>
+              <div class="col-2 user-icon">
+                <% user = User.find(post.user_id) %>
+                <% if user.image.attached? %>
+                  <%= image_tag user.image %>
+                <% else %>
+                  <%= image_tag "default-image.jpeg" %>
+                <% end %>
               </div>
               <div class="col-10 post-info">
-            <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
+                <p><b class="post-username"><%= user.display_name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
               </div>
             </p>
           </div>
 
-          <div class="caption-text row"><p><%= post.message %></p> <br></div> 
+          <div class="caption-text row">
+            <p><%= post.message %></p> <br>
+          </div> 
 
           <div class="row pic-image"> 
             <% if post.post_image.attached? %>
@@ -73,29 +86,26 @@
                 <i class="far fa-comment"></i>
               <% end %>
             </div>
-             <div class="like-feat col-2">
-         <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
-       </div>
-        <div class="like-feat col-1">
-      <% if post.user_id == session[:user_id] %>
-       <%= link_to(post, method: "delete", data: { confirm: "Are you sure?" }, class: "del-link") do %>
-       <i class="far fa-trash-alt"></i>
-           <% end %>
-           <% end %>
-      </div>
-   
+            <div class="like-feat col-2">
+              <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
+            </div>
+            <div class="like-feat col-1">
+              <% if post.user_id == session[:user_id] %>
+                <%= link_to(post, method: "delete", data: { confirm: "Are you sure?" }, class: "del-link") do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            </div>
           </div>
-
-
           <div class="row">
             <% if post.comments.length > 2 %>
             <span class="view-all-com">View all <%= post.comments.length %> comments</span>
               <% post.comments.last(1).each do |comment| %>
-                <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %>  </b><%= comment.body %></p>
+                <p><b class="post-username"><%= user.display_name %>  </b><%= comment.body %></p>
                 <% end %>
             <% else %>
               <% post.comments.each do |comment| %>
-                <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b>  <%= comment.body %></p>
+                <p><b class="post-username"><%= user.display_name %></b>  <%= comment.body %></p>
               <% end %>
             <% end %>
           </div>

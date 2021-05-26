@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @user = User.find(post.user_id)
+    @current_user = User.find(session[:user_id])
     @post = Post.new
     redirect_to "/" unless session[:user_id]
     @posts = Post.all.order(created_at: :desc)

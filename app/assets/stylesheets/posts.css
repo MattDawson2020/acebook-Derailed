@@ -1,0 +1,40 @@
+#new_post_message{
+  width: 100%;
+}
+
+#new_post_user_icon img{
+  max-width:100%;
+  height: auto;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#new_post_user_icon{
+  padding-right: 0;
+  padding-left: 0;
+  position: relative;
+}
+
+
+#profile_card_img_div img{
+  max-width:100%;
+  height: auto;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#profile_card_img_div{
+  padding: 0;
+  position: relative;
+}
+
+.user-icon img{
+  max-width:100%;
+  height: auto;
+  position: absolute;
+}
+
+.user-icon{
+  padding: 0;
+  position: relative;
+}

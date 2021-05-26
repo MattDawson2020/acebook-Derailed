@@ -22,4 +22,8 @@ class User < ApplicationRecord
     user = User.find(id)
     user.name
   end
+
+  def display_name
+    self.nickname ? self.nickname : self.name
+  end
 end
