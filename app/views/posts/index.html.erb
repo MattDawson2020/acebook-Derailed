@@ -31,6 +31,8 @@
         </div>
       </div>
     </div>
+
+
     <div class="col-5 two post-feed">
       <% @posts.each do |post| %>
         <div class="container post-card">
@@ -66,20 +68,17 @@
                 <i class="far fa-comment"></i>
               <% end %>
             </div>
-             <div class="like-feat col-2">
-         <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
-       </div>
-        <div class="like-feat col-1">
-      <% if post.user_id == session[:user_id] %>
-       <%= link_to(post, method: "delete", data: { confirm: "Are you sure?" }, class: "del-link") do %>
-       <i class="far fa-trash-alt"></i>
-           <% end %>
-           <% end %>
-      </div>
-   
+            <div class="like-feat col-2">
+              <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
+            </div>
+            <div class="like-feat col-1">
+              <% if post.user_id == session[:user_id] %>
+                <%= link_to(post, method: "delete", data: { confirm: "Are you sure?" }, class: "del-link") do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            </div>
           </div>
-
-
           <div class="row">
             <% if post.comments.length > 2 %>
             <span class="view-all-com">View all <%= post.comments.length %> comments</span>
@@ -96,9 +95,22 @@
       <% end %>
     </div>
 
+
+
     <div class="col three">
-    
+      <div class="container">
+        <% User.all.filter do |user| %>
+          <% if user != current_user%>
+            <div> 
+              <%=user.name%> 
+              <%=button_to "Invite", invitations_path(user.id), method: "post" %>
+            </div> 
+          <%end%>
+        <% end %>
+      </div>
     </div>
+
+
   </div>
 
    
