@@ -4,18 +4,45 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      document.getElementById('img_prev').style.display="block";
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#img_prev')
+        .attr('src', e.target.result)
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
   <title>Document</title>
 </head>
 <body>
 <main>
-  <%= form_with model: @user, local: true do |form| %>
-    <%= form.label :nickname %>
-    <%= form.text_field :nickname, id: "add_nickname" %>
-    <%= form.submit "Submit" %>
+<div class="container changeBox">
+<h1 id="signupTitle">Edit Your Details</h1> 
+<%= form_with model: @user, local: true do |form| %> 
+   
+    <div class="container signupLeft">
+      <%= form.text_field :name, id: 'signUpName', class: "form-control col-md-6 signupEntry", placeholder: "Name"%>
+      <%= form.text_field :nickname ,class: "form-control col-md-6 signupEntry",id: "add_nickname", placeholder: "Nickname" %>
+      <%= form.text_field :email, id: 'signUpEmail', class: "form-control col-md-6 signupEntry", placeholder: "Email Address" %>
+      <%= form.password_field :password, id: 'signUpPassword', class: "form-control col-md-6 signupEntry", placeholder: "Password" %>
+      <%= form.password_field :password_confirmation, id: 'signUpPasswordConfirm', class: "form-control col-md-6 signupEntry", placeholder: "Re-confirm password"%>
+      <br>
+      <%= form.label :image, 'Display Picture' %>
+      <%= form.file_field :image, id: 'signUpDisplayPic', class: "form-control col-md-6 signupEntry", onchange: "readURL(this);"%>
+      <img id="img_prev" src="#" style="display:none"/>
+      <br>
+    </div>
+    <div class="container signupRight">
+      <%= form.submit "Confirm Changes", id: "signUpCreateBtn", class: "form-control col-md-2 btn btn-lg btn-primary signupButton"%>
+    </div>
   <% end %>
+</div> 
 
-  
-  
-  </main>
+   </main>
 </body>
 </html>
