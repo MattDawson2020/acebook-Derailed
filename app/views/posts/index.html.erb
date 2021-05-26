@@ -32,6 +32,13 @@
       </div>
     </div>
     <div class="col-5 two post-feed">
+      <div id='posts_bar'>
+        <%= form_for @post do |form| %>
+          <%= form.text_field :message %>
+          <%= form.file_field :post_image, id: "Post_picture" %>
+          <%= form.submit "Submit" %>
+        <% end %>
+      </div>
       <% @posts.each do |post| %>
         <div class="container post-card">
           <div class="row">
