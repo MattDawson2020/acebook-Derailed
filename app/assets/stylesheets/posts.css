@@ -1,5 +1,13 @@
 #new_post_message{
   width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-color: white;
+  border-style: none;
+}
+
+#new_post_box{
+  padding-bottom: 5px;
 }
 
 #new_post_user_icon img{
@@ -8,6 +16,7 @@
   height: auto;
   border-radius: 50%;
   position: absolute;
+  margin-top: 30%;
 }
 
 #new_post_user_icon{
@@ -41,4 +50,53 @@
 .user-icon{
   padding: 0;
   position: relative;
+}
+
+#Post_picture{
+  width: 70%;
+}
+
+#new_post_submit{
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  border-radius: .3rem;
+  color: #fff;
+  border-style: none;
+  width: 10%;
+  height: 33px;
+  position: absolute;
+}
+
+#new_post_submit:hover{
+  background-color: #095fdf;
+  transition-duration: 0.15s, 0.15s, 0.15s, 0.15s;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+input[type='file'] {
+  color: rgba(0, 0, 0, 0)
+}
+
+.custom-file-input::before {
+  content: 'Add photo';
+  display: inline-block;
+  background-color: #0d6efd;
+  border: 1px solid #0d6efd;
+  border-radius: .3rem;
+  width: 90%;
+  height: 33px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  padding-top: 3px;
+}
+.custom-file-input:hover::before {
+  background-color: #095fdf;
+  transition-duration: 0.15s, 0.15s, 0.15s, 0.15s;
 }

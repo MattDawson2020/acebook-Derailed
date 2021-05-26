@@ -41,10 +41,19 @@
             <% end %>
           </div>
           <div id='new_post_form_div' class="col-10">
+            
             <%= form_for @post, {id: "new_post_form"} do |form| %>
               <%= form.text_field :message, id: "new_post_message", placeholder: "What's new, #{@current_user.display_name}?" %>
-              <%= form.file_field :post_image, id: "Post_picture" %>
-              <%= form.submit "Submit", id: "new_post_submit" %>
+              
+              <div class='row'>
+                <div class="col-7"> 
+                  <%= form.file_field :post_image, id: "Post_picture", class: "custom-file-input"%>
+    
+                </div>
+                <div class="col-5">
+                <%= form.submit "Submit", id: "new_post_submit" %>
+                </div>
+              </div>
             <% end %>
           </div>
         </div>
@@ -63,7 +72,11 @@
                 <% end %>
               </div>
               <div class="col-10 post-info">
-                <p><b class="post-username"><%= user.display_name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
+                <p>
+                  <b class="post-username"><%= user.display_name %></b>
+                  <br> 
+                  <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span>
+                </p>
               </div>
             </p>
           </div>

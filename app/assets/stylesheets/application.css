@@ -149,8 +149,6 @@
      color: tomato;
 }
 
-
- 
  footer {
 
   display: flex;
@@ -162,4 +160,8 @@
   height: 3.5rem;
   font-family: 'Play', sans-serif;
   background-color: white;
+  }
+
+  #derailed-nav{
+    z-index: 10;
   }
