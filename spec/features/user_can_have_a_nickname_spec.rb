@@ -5,9 +5,9 @@ feature "User has nickname" do
     sign_up
     login
     click_link "Profile"
-    click_button "Edit Profile"
+    click_link "Edit Profile"
     fill_in "add_nickname", with: "Dog"
-    click_button "Submit"
+    click_button "Confirm Changes"
     visit "/posts"
     click_link "New post"
     fill_in "Message", with: "Hello, world!"

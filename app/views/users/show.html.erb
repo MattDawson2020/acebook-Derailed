@@ -1,40 +1,142 @@
-<%= "#{@user.name}'s profile" %>
-<p>
-  <%if @user.image.attached? %>
-    <%= image_tag @user.image, style: "width: 100px;" %>
-  <%else%>
-    <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
-  <%end%>
-  <%= @user.nickname ? @user.nickname : @user.name %>
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </html><script src="https://kit.fontawesome.com/42cdd50c56.js" crossorigin="anonymous"></script>
+
+  <title>Profile Page</title>
+</head>
+<body>
+  
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col one"> 
+          <div class="container profile-window">
+            <div class="row">
+            <div class="col-4">
+              <% if current_user.image.attached? %>
+                <%= image_tag current_user.image %>
+              <% else %>
+                <%= image_tag "default-image.jpeg" %>
+              <% end %>
+            </div>
+            <div class="col-8 profile-window-names">
+              <h4><%= current_user.nickname %></h4>
+              <h6><%= current_user.name %></h6>
+            </div>
+          </div>
+            <div class="row profile-details">
+              <div class="row top-row"> 
+                <div class="col-4">
+                  <h6>Name</h6>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5 right-col">
+                   <%= "#{@user.name}" %>
+                </div>
+              </div>
+              <div class="row"> 
+                <div class="col-4">
+                   <h6> Nickname</h6> 
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5 right-col">
+                   <%= "#{@user.nickname}" if @user.nickname %>
+                </div>
+              </div>
+              <div class="row"> 
+                <div class="col-4">
+                   <h6>Email</h6>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5 right-col">
+                   <%= "#{@user.email}" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row edit-div">
+              <div class="col-10 " ></div>
+              <div class="col-1 ">
+                <%= link_to edit_user_path(@user.id), method: 'get', class: "col-1 edit-button", id: "Edit Profile" do %>
+                <i class="fas fa-wrench"></i><% end%>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <%# <%= "#{@user.name}'s profile" %> 
 
 
-<%= button_to "Edit Profile", edit_user_path(@user.id), method: 'get' %>
+        <div class="col-5 two post-feed">
+      <% @posts.each do |post| %>
+        <div class="container post-card">
+          <div class="row">
+            <p class="user-features">
+            <div class="col-2 user-icon">
+              <% user = User.find(post.user_id) %>
+              <% if user.image.attached? %>
+                <%= image_tag user.image %>
+              <% else %>
+                <%= image_tag "default-image.jpeg" %>
+              <% end %>
+              </div>
+              <div class="col-10 post-info">
+            <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
+              </div>
+            </p>
+          </div>
 
+          <div class="caption-text row"><p><%= post.message %></p> <br></div> 
 
-<% @user.posts.each do |post| %>
-  <p>
-    <% user = User.find(post.user_id) %>
-    <%if user.image.attached? %>
-      <%= image_tag user.image, style: "width: 20px;" %>
-    <%else%>
-      <%= image_tag "default-image.jpeg", style: "width: 20px;" %>
-    <%end%>
-   <%= user.nickname ? user.nickname : user.name %>
-  </p>
-  <p><%= post.message %></p> <br>
-  <div>
-    <%if post.post_image.attached? %>
-      <%= image_tag post.post_image, style: "width: 100px; height: 100px;" %>
-    <%end%>
-  </div>
+          <div class="row pic-image"> 
+            <% if post.post_image.attached? %>
+              <%= image_tag post.post_image %>
+            <% end %>
+          </div>
+
+          <div class="like-and-comment-btn row">
+            <div class="col-9">
+              <%= link_to like_path(post.id), method: "put", class: "like-link" do %> 
+                <i class="far fa-heart"></i><% end %>
+              <%= link_to new_comment_path(post), class: "comment-link" do %>
+                <i class="far fa-comment"></i>
+              <% end %>
+            </div>
+             <div class="like-feat col-2">
+         <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
+       </div>
+        <div class="like-feat col-1">
+      <% if post.user_id == session[:user_id] %>
+       <%= link_to(post, method: "delete", data: { confirm: "Are you sure?" }, class: "del-link") do %>
+       <i class="far fa-trash-alt"></i>
+           <% end %>
+           <% end %>
+      </div>
    
-  <% post.comments.each do |comment| %>
-  <p><%= comment.body %></p>
+          </div>
 
-<% end %>
-  <div>
-    <%= post.likes %> <%= post.likes == 1 ? "Like" : "Likes" %>
-  </div>
-  <br /> <br />
-<% end %>
+
+          <div class="row">
+            <% if post.comments.length > 2 %>
+            <span class="view-all-com">View all <%= post.comments.length %> comments</span>
+              <% post.comments.last(1).each do |comment| %>
+                <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %>  </b><%= comment.body %></p>
+                <% end %>
+            <% else %>
+              <% post.comments.each do |comment| %>
+                <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b>  <%= comment.body %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </main>
+</body>
