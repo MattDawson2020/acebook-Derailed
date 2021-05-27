@@ -1,8 +1,5 @@
 class PostsController < ApplicationController
-  def new
-    @post = Post.new
-  end
-
+  
   def create
     @post = Post.create(message: post_params, user_id: session[:user_id])
     @post.post_image.attach(params[:post][:post_image])
