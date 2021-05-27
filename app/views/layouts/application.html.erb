@@ -16,14 +16,14 @@
     <header class="top-header">
       <%= render "layouts/navigation" %>
     </header>
-  <div class="flash">
+ 
     <% flash.keys.each do |type| %>
       <div data-alert class="flash <%= type %> alert-box radius">
         <%= flash[type] %>
         <a href="" class="close">&times;</a>
       </div>
     <% end %>
-  </div>
+  
 
     <%= yield %>
 
