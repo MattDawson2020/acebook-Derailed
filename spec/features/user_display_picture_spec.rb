@@ -5,8 +5,7 @@ feature "User displays picture" do
     sign_up
     login
     # save_and_open_page
-    click_link("New post")
-    fill_in("Message", with: "Hello")
+    fill_in "new_post_message", with: "Hello, world!"
     click_button("Submit")
     expect(page).to have_content("0")
   end
@@ -19,10 +18,9 @@ feature "User displays picture" do
     attach_file "signUpDisplayPic", (File.dirname(__FILE__) + "/images/bob_ross_img.png")
     fill_in "signUpPassword", with: "CKMMNTT"
     fill_in "signUpPasswordConfirm", with: "CKMMNTT"
-    click_button 'Create User'
+    click_button "Create User"
     login
-    click_link("New post")
-    fill_in("Message", with: "Hello")
+    fill_in "new_post_message", with: "Hello, world!"
     click_button("Submit")
     expect(page).to have_css("img[src*='bob_ross_img.png']")
   end
