@@ -21,4 +21,7 @@ class Invitation < ApplicationRecord
     end
   end
 
+  def self.requests(current_user_id)
+    Invitation.where(friend_id: current_user_id, confirmed: false)
+  end
 end

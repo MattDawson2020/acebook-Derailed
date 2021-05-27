@@ -30,6 +30,31 @@
           </div>
         </div>
       </div>
+      <div class="container all-contacts">
+       Users
+        <% User.all.shuffle.filter do |user| %>
+         <% if user != current_user %>
+            <div class="user-to-be-friend">
+            <div class="row-3 user-icon">
+              <% if user.image.attached? %>
+                <%= image_tag user.image %>
+              <% else %>
+                <%= image_tag "default-image.jpeg" %>
+              <% end %>
+              </div>
+              <div class="row-5">
+                <%= user.name %>
+              </div> 
+              <% if !Invitation.accepted?(user.id, current_user.id) %>
+              <div class="row-4"> 
+              <%= button_to "Invite", invitations_path(user.id), method: "post" %>
+              </div>
+              <% end %>
+            </div> 
+          <% end %>
+        <% end %>
+    </div>
+
     </div>
 
 
@@ -98,27 +123,55 @@
 
 
     <div class="col three">
-      <div class="container">
-        <% User.all.filter do |user| %>
-          <% if user != current_user%>
-            <div> 
-              <%=user.name%> 
-              <%=button_to "Invite", invitations_path(user.id), method: "post" %>
-            </div> 
-          <%end%>
+      <div class="container requests">
+        Requests
+        <% Invitation.requests(current_user.id).each do |request| %>
+            <div class="row">
+             <div class="col-2 user-icon">
+              <% if User.find(request.user_id).image.attached? %>
+                <%= image_tag User.find(request.user_id).image %>
+              <% else %>
+                <%= image_tag "default-image.jpeg" %>
+              <% end %>
+              </div>
+          <div class="col-6 profile-card-names">
+            <h4><%= User.find(request.user_id).nickname %></h4>
+            <h6><%= User.find(request.user_id).name %></h6>
+          </div>
+          <div class="col-4"> 
+              <%= button_to "Accept", invitation_path(request.id, true), method: "put" %>
+              <%= button_to "Refuse", invitation_path(request.id, false), method: "put" %>
+              </div> 
+        </div> 
         <% end %>
       </div>
-    </div>
+      
+      <br>
+      <br>
+      <br>
 
-
+      <div class="container all-friends">
+      Friends
+        <% current_user.friends.each do |friend| %>
+            <div class="friends-list">
+            <div class="row">
+            <div class="col-4 user-icon">
+              <% if friend.image.attached? %>
+                <%= image_tag friend.image %>
+              <% else %>
+                <%= image_tag "default-image.jpeg" %>
+              <% end %>
+              </div>
+              <div class="col-8 profile-card-names">
+              <%= friend.name %> 
+              </div>
+              </div> 
+            </div> 
+        <% end %>
+      </div>
   </div>
 
-   
-
-
   
-
-
   </div>
   </main>
 </body>

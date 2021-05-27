@@ -18,6 +18,7 @@
      background-color: #edf1f3; 
   }
 
+
   main {
     max-width: 80%;
     margin: 0 auto;
@@ -28,11 +29,12 @@
    position: fixed;
    top: 0;
    width: 100%;
+   background-color: white;
   }
   
-  .nav-item:hover{
+  /* .nav-item:hover{
     background-color: #5DA6FB;
-  }
+  } */
   
   .logo img{
     max-height: 40px;
@@ -163,6 +165,15 @@
      color: tomato;
 }
 
+.user-to-be-friend {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navbar-nav {
+    align-items: center;
+}
 
  
  footer {
@@ -177,3 +188,116 @@
   font-family: 'Play', sans-serif;
   background-color: white;
   }
+
+  .light-dark {
+    display: inline-block;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin: auto;
+    
+    
+    
+}
+
+
+.label {
+    background-color: #4e89ae;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    height: 24px;
+    width: 48px;
+
+    
+}
+
+.checkbox {
+    opacity: 0;
+    align-items: flex-end;
+    
+}
+
+
+
+.fa-moon {
+    color: #fff3b2;
+}
+
+.fa-sun {
+    color: #fc8621;
+}
+
+
+.ball {
+    background-color: white;
+    border-radius: 55%;
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    left: 2px;
+    position: absolute;
+    transition: transform 0.15s linear;
+    
+    
+}
+
+.label:hover {
+    cursor: pointer;
+}
+
+.checkbox:checked + .label {
+    background-color: #0a043c;
+}
+
+
+.checkbox:checked + .label .ball {
+    transform: translateX(23px);
+    background-color: white;
+}
+
+body.dark {
+    background-color: #1e212d;
+    color: #fdb827;
+}
+
+.dark .profile-card,.dark .post-card {
+    background-color: #4a47a3;
+    color: #cd5d7d;
+    box-shadow: rgba(86, 162, 250, 0.4) 0px 5px, rgba(86, 162, 250, 0.3) 0px 10px, rgba(86, 162, 250, 0.2) 0px 15px, rgba(86, 162, 250, 0.1) 0px 20px, rgba(86, 162, 250, 0.05) 0px 25px;
+    
+  }
+
+  .dark footer {
+      background-color: #1a1a2e;
+      color: #62D1B6;
+  }
+
+  .dark #derailed-nav {
+    background-color: #1a1a2e;
+    color: #fa9579;
+  }
+
+  .dark .del-link{
+    color: #fa9579;
+ }
+
+ .dark .like-link,.dark .comment-link {
+    color: #fdb827;
+ }
+
+ .dark .like-link:hover,.dark .comment-link:hover {
+    color: #5aa897;
+ }
+
+ .dark .del-link:hover {
+     color: #ff4646;
+}
+
+.dark .navbar-light .navbar-nav .nav-link{
+    color: #62D1B6;
+}

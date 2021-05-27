@@ -19,26 +19,27 @@
     }
   }
 </script>
+<%= javascript_include_tag "application" %>
   <title>Document</title>
 </head>
 <body>
 <main>
 <div class="container signupBox">
 <h1 id="signupTitle">Sign Up</h1>  
-  <%= form_for @user, {class: "row g-3"} do |form|%>  
+  <%= form_for @user, { class: "row g-3" } do |form| %>  
     <div class="container signupLeft">
-      <%= form.text_field :name, id: 'signUpName', class: "form-control col-md-6 signupEntry", placeholder: "Name"%>
-      <%= form.text_field :email, id: 'signUpEmail', class: "form-control col-md-6 signupEntry", placeholder: "Email Address" %>
-      <%= form.password_field :password, id: 'signUpPassword', class: "form-control col-md-6 signupEntry", placeholder: "Password" %>
-      <%= form.password_field :password_confirmation, id: 'signUpPasswordConfirm', class: "form-control col-md-6 signupEntry", placeholder: "Re-confirm password"%>
+      <%= form.text_field :name, id: "signUpName", class: "form-control col-md-6 signupEntry", placeholder: "Name" %>
+      <%= form.text_field :email, id: "signUpEmail", class: "form-control col-md-6 signupEntry", placeholder: "Email Address" %>
+      <%= form.password_field :password, id: "signUpPassword", class: "form-control col-md-6 signupEntry", placeholder: "Password" %>
+      <%= form.password_field :password_confirmation, id: "signUpPasswordConfirm", class: "form-control col-md-6 signupEntry", placeholder: "Re-confirm password" %>
       <br>
-      <%= form.label :image, 'Display Picture' %>
-      <%= form.file_field :image, id: 'signUpDisplayPic', class: "form-control col-md-6 signupEntry", onchange: "readURL(this);"%>
+      <%= form.label :image, "Display Picture" %>
+      <%= form.file_field :image, id: "signUpDisplayPic", class: "form-control col-md-6 signupEntry", onchange: "readURL(this);" %>
       <img id="img_prev" src="#" style="display:none"/>
       <br>
     </div>
     <div class="container signupRight">
-      <%= form.submit "Create User", id: "signUpCreateBtn", class: "form-control col-md-2 btn btn-lg btn-primary signupButton"%>
+      <%= form.submit "Create User", id: "signUpCreateBtn", class: "form-control col-md-2 btn btn-lg btn-primary signupButton" %>
     </div>
   <% end %>
 </div> 
