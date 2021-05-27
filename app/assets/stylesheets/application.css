@@ -19,7 +19,12 @@
   }
 
   .welcome {
-    background: url(https://images.pexels.com/photos/1486861/pexels-photo-1486861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center fixed;
+    background-image: url(umbrella_background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
   }
 
   main {
