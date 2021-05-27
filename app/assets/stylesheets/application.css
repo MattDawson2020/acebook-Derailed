@@ -15,7 +15,11 @@
  */
 
   body {
-     background-color: #edf1f3; 
+    background-color: #edf1f3; 
+  }
+
+  .welcome {
+    background: url(https://images.pexels.com/photos/1486861/pexels-photo-1486861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center fixed;
   }
 
   main {

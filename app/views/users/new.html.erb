@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
+<body class='welcome'>
 <main>
 <div class="container signupBox">
 <h1 id="signupTitle">Sign Up</h1>  
   <%= form_for @user, {class: "row g-3"} do |form|%>  
     <div class="container signupLeft">
-      <%= form.text_field :name, id: 'signUpName', class: "form-control col-md-6 signupEntry", placeholder: "Name"%>
-      <%= form.text_field :email, id: 'signUpEmail', class: "form-control col-md-6 signupEntry", placeholder: "Email Address" %>
-      <%= form.password_field :password, id: 'signUpPassword', class: "form-control col-md-6 signupEntry", placeholder: "Password" %>
-      <%= form.password_field :password_confirmation, id: 'signUpPasswordConfirm', class: "form-control col-md-6 signupEntry", placeholder: "Re-confirm password"%>
+      <%= form.text_field :name, id: 'signUpName', class: "form-control col-md-6 signupEntry", placeholder: "Name", required: true%>
+      <%= form.text_field :email, id: 'signUpEmail', class: "form-control col-md-6 signupEntry", placeholder: "Email Address", required: true %>
+      <%= form.password_field :password, id: 'signUpPassword', class: "form-control col-md-6 signupEntry", placeholder: "Password", minlength: 6, maxlength: 20, required: true %>
+      <%= form.password_field :password_confirmation, id: 'signUpPasswordConfirm', class: "form-control col-md-6 signupEntry", placeholder: "Re-confirm password", minlength: 6, maxlength: 20, required: true%>
       <div id='sign_up_password_helpers'>
         <div onclick="showPassword()" id="show_password">Show Password</div>
         <div class='tooltip'>
@@ -28,7 +28,6 @@
       <%= form.label :image, 'Display Picture', id: 'sign_up_display_pic_label' %>
       <%= form.file_field :image, id: 'signUpDisplayPic', class: "form-control col-md-6 signupEntry", onchange: "readURL(this, 'img_prev');"%>
       <img id="img_prev" src="#" style="display:none"/>
-      
     </div>
     <div class="container signupRight">
       <%= form.submit "Create User", id: "signUpCreateBtn", class: "form-control col-md-2 btn btn-lg btn-primary signupButton"%>
