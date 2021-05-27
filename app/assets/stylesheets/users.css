@@ -69,20 +69,27 @@ width: 60%;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    padding-right: 0;
+    margin-right: 10%;
 }
 
 .profile-window-names{
     line-height: 30px;
     padding-top: 15px;
+    padding-left: 1%;
+    
+   
 }
 
 .profile-window-names h6 {
     color: #62d1b6;
+    margin-left: 1%;
 }
 
 .profile-details h6{
     color: #62d1b6;
+    margin-bottom: 8%;
+    margin-top: 7%;
+    margin-left: 30%;
 }
 
 .right-col{
@@ -93,6 +100,7 @@ width: 60%;
     display: flex;
     justify-content: right; 
     text-decoration: none;
+    margin-top: 50%;
 }
 
 
@@ -209,5 +217,12 @@ width: 60%;
   box-shadow: 4px 4px 10px 4px #888888;
 } 
 
+.useremail{
+  margin-left: -9%;
+  margin-top: 2%
+}
 
+.usertime{
+  margin-left: 9%;
+}
 

@@ -25,14 +25,18 @@
                 </div>
                 <div class="col-1"></div>
                 <div class="col-5 right-col">
-                   <%= "#{@user.email}" %>
+                  <p class="useremail">
+                    <%= "#{@user.email}" %>
+                  </p>
                 </div>
               </div>
             </div>
 
             <div class="row edit-div">
               <div class="col-10" >
-                <span class="time-ago"><%="Joined #{time_ago_in_words(@user.created_at)} ago"  %></span>
+                <p class="usertime">
+                  <span class="time-ago"><%="Joined #{time_ago_in_words(@user.created_at)} ago"  %></span>
+                </p>
               </div>
               <div class="col-1 ">
                 <%= link_to edit_user_path(@user.id), method: 'get', class: "col-1 edit-button", id: "Edit Profile" do %>
