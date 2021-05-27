@@ -12,3 +12,27 @@
 //
 //= require rails-ujs
 //= require_tree .
+
+function readURL(input, id) {
+  if (input.files && input.files[0]) {
+    document.getElementById(id).style.display="block";
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $(`#${id}`)
+      .attr('src', e.target.result)
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function showPassword() {
+  let x = document.getElementById("signUpPassword");
+  let y = document.getElementById("signUpPasswordConfirm");
+  [x,y].forEach(element => {
+    if (element.type === "password") {
+      element.type = "text";
+    } else {
+      element.type = "password";
+    }
+  })
+}

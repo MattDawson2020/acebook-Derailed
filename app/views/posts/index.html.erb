@@ -7,22 +7,9 @@
   <script src="https://kit.fontawesome.com/42cdd50c56.js" crossorigin="anonymous"></script>
   <title>Document</title>
   <script>
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      document.getElementById('new_post_img_prev').style.display="block";
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        $('#new_post_img_prev')
-        .attr('src', e.target.result)
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
 </script>
 </head>
 <body>
-<% if session[:user_id] %>
-<% end %>
   <main>
   <div class="container-fluid">
   <div class="row">
@@ -50,13 +37,13 @@
           <%= form.text_field :message, id: "new_post_message", placeholder: "What's new, #{@current_user.display_name}?" %>
           <div class='row'>
             <div class="col-6"> 
-              <%= form.file_field :post_image, id: "Post_picture", class: "custom-file-input", onchange: "readURL(this);"%>
+              <%= form.file_field :post_image, id: "Post_picture", class: "custom-file-input", onchange: "readURL(this, 'new_post_img_prev');"%>
             </div>
             <div class='col-1'>
               <img id="new_post_img_prev" src="#" style="display:none"/>
             </div>
             <div class="col-5">
-            <%= form.submit "Submit", id: "new_post_submit" %>
+              <%= form.submit "Submit", id: "new_post_submit" %>
             </div>
           </div>
         <% end %>
