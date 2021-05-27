@@ -45,33 +45,20 @@
     </div>
     <div class="col-5 two post-feed">
       <div id='new_post_bar' class="container post-card " >
-        <div class='row'>
-          <div id='new_post_user_icon' class="col-2">
-            <% if @current_user.image.attached? %>
-              <%= image_tag @current_user.image %>
-            <% else %>
-              <%= image_tag "default-image.jpeg" %>
-            <% end %>
+        <%= form_for @post, {id: "new_post_form"} do |form| %>
+          <%= form.text_field :message, id: "new_post_message", placeholder: "What's new, #{@current_user.display_name}?" %>
+          <div class='row'>
+            <div class="col-6"> 
+              <%= form.file_field :post_image, id: "Post_picture", class: "custom-file-input", onchange: "readURL(this);"%>
+            </div>
+            <div class='col-1'>
+              <img id="new_post_img_prev" src="#" style="display:none"/>
+            </div>
+            <div class="col-5">
+            <%= form.submit "Submit", id: "new_post_submit" %>
+            </div>
           </div>
-          <div id='new_post_form_div' class="col-10">
-            
-            <%= form_for @post, {id: "new_post_form"} do |form| %>
-              <%= form.text_field :message, id: "new_post_message", placeholder: "What's new, #{@current_user.display_name}?" %>
-              <div class='row'>
-                <div class="col-6"> 
-                  <%= form.file_field :post_image, id: "Post_picture", class: "custom-file-input", onchange: "readURL(this);"%>
-                </div>
-                <div class='col-1'>
-                  <img id="new_post_img_prev" src="#" style="display:none"/>
-                </div>
-                <div class="col-5">
-                <%= form.submit "Submit", id: "new_post_submit" %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        
+        <% end %>
       </div>
       <% @posts.each do |post| %>
         <div class="container post-card">

@@ -6,10 +6,6 @@
   border-style: none;
 }
 
-#new_post_box{
-  padding-bottom: 5px;
-}
-
 #new_post_user_icon img{
   width:100%;
   max-width: 50px;
@@ -62,9 +58,11 @@
   border-radius: .3rem;
   color: #fff;
   border-style: none;
-  width: 10%;
+  width: 32%;
   height: 33px;
   position: absolute;
+  right: 24px;
+
 }
 
 #new_post_submit:hover{
@@ -105,4 +103,8 @@ input[type='file'] {
   height: 30px;
   width: auto;
   margin-left: -50px;
+}
+
+#new_post_bar{
+  position: relative;
 }

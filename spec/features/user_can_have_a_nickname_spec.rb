@@ -9,8 +9,7 @@ feature "User has nickname" do
     fill_in "add_nickname", with: "Dog"
     click_button "Submit"
     visit "/posts"
-    click_link "New post"
-    fill_in "Message", with: "Hello, world!"
+    fill_in "new_post_message", with: "Hello, world!"
     click_button "Submit"
     expect(page).to have_content("Dog")
   end
