@@ -12,9 +12,10 @@
 <% current_user = User.find(session[:user_id]) %>
 <% end %>
   <main>
-  <div class="container-fluid">
+  <div class="container-fluid ">
   <div class="row">
     <div class="col one">
+      <div class="background-color">
       <div class="container profile-card">
         <div class="row">
           <div class="col-4">
@@ -30,35 +31,40 @@
           </div>
         </div>
       </div>
-      <div class="container all-contacts">
-       Users
+      <div class="container users-card">
+        <div class="row title">
+          <h5>Users</h5>
+        </div>
         <% User.all.shuffle.filter do |user| %>
-         <% if user != current_user %>
-            <div class="user-to-be-friend">
-            <div class="row-3 user-icon">
-              <% if user.image.attached? %>
-                <%= image_tag user.image %>
-              <% else %>
-                <%= image_tag "default-image.jpeg" %>
-              <% end %>
+          <% if user != current_user %>
+            <div class="row user-to-be-friend">
+              <div class="col-2 user-icon">
+                <% if user.image.attached? %>
+                  <%= image_tag user.image %>
+                <% else %>
+                  <%= image_tag "default-image.jpeg" %>
+                <% end %>
               </div>
-              <div class="row-5">
-                <%= user.name %>
+              <div class="col-6 name">
+                  <h6><%= user.name %></h6>
               </div> 
-              <% if !Invitation.accepted?(user.id, current_user.id) %>
-              <div class="row-4"> 
-              <%= button_to "Invite", invitations_path(user.id), method: "post" %>
+              <div class="col-4"> 
+                <% if !Invitation.accepted?(user.id, current_user.id) %>
+                    <%= button_to "Invite", invitations_path(user.id), method: "post" %>
+                <% else %>
+                    <button> Friends </button>
+                <% end %>
               </div>
-              <% end %>
             </div> 
           <% end %>
         <% end %>
+      </div>  
     </div>
+</div>
+    
 
-    </div>
 
-
-    <div class="col-5 two post-feed">
+    <div class="col-6 two post-feed">
       <% @posts.each do |post| %>
         <div class="container post-card">
           <div class="row">
@@ -72,7 +78,15 @@
               <% end %>
               </div>
               <div class="col-10 post-info">
-            <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b> <br> <span class="time-ago"><%= time_ago_in_words(post.created_at) %> ago</span></p>
+                <p>
+                  <b class="post-username">
+                    <%= user.nickname ? user.nickname : user.name %>
+                  </b> 
+                  <br> 
+                  <span class="time-ago">
+                    <%= time_ago_in_words(post.created_at) %> ago
+                  </span>
+                </p>
               </div>
             </p>
           </div>
@@ -108,11 +122,11 @@
             <% if post.comments.length > 2 %>
             <span class="view-all-com">View all <%= post.comments.length %> comments</span>
               <% post.comments.last(1).each do |comment| %>
-                <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %>  </b><%= comment.body %></p>
+                <p><b class="post-username"><%= User.find_by(id: comment.user_id).nickname ? User.find_by(id: comment.user_id).nickname : User.find_by(id: comment.user_id).name %>  </b><%= comment.body %></p>
                 <% end %>
             <% else %>
               <% post.comments.each do |comment| %>
-                <p><b class="post-username"><%= user.nickname ? user.nickname : user.name %></b>  <%= comment.body %></p>
+                <p><b class="post-username"><%= User.find_by(id: comment.user_id).nickname ? User.find_by(id: comment.user_id).nickname : User.find_by(id: comment.user_id).name %></b>  <%= comment.body %></p>
               <% end %>
             <% end %>
           </div>
@@ -124,50 +138,45 @@
 
     <div class="col three">
       <div class="container requests">
-        Requests
+        <h5 class="title">Requests</h5>
         <% Invitation.requests(current_user.id).each do |request| %>
-            <div class="row">
-             <div class="col-2 user-icon">
+          <div class="row request-card">
+            <div class="col-4 request-icon">
               <% if User.find(request.user_id).image.attached? %>
                 <%= image_tag User.find(request.user_id).image %>
               <% else %>
                 <%= image_tag "default-image.jpeg" %>
               <% end %>
-              </div>
-          <div class="col-6 profile-card-names">
-            <h4><%= User.find(request.user_id).nickname %></h4>
-            <h6><%= User.find(request.user_id).name %></h6>
-          </div>
-          <div class="col-4"> 
+            </div>
+            <div class="col-8">
+              <h6><b><%= User.find(request.user_id).name %></b> wants to add you as a friend</h6>
+            </div>
+            <div class="col-6 accept-btn"> 
               <%= button_to "Accept", invitation_path(request.id, true), method: "put" %>
+            </div>
+            <div class="col-6 refuse-btn"> 
               <%= button_to "Refuse", invitation_path(request.id, false), method: "put" %>
-              </div> 
-        </div> 
-        <% end %>
-      </div>
-      
-      <br>
-      <br>
-      <br>
-
-      <div class="container all-friends">
-      Friends
-        <% current_user.friends.each do |friend| %>
-            <div class="friends-list">
-            <div class="row">
-            <div class="col-4 user-icon">
-              <% if friend.image.attached? %>
-                <%= image_tag friend.image %>
-              <% else %>
-                <%= image_tag "default-image.jpeg" %>
-              <% end %>
-              </div>
-              <div class="col-8 profile-card-names">
-              <%= friend.name %> 
-              </div>
-              </div> 
             </div> 
+          </div> 
         <% end %>
+      
+        <div class="row all-friends">    
+          <h5 class="title"> Friends </h5>
+          <% current_user.friends.each do |friend| %>
+            <div class="friend">
+              <div class="col-2 user-icon">
+                <% if friend.image.attached? %>
+                  <%= image_tag friend.image %>
+                <% else %>
+                  <%= image_tag "default-image.jpeg" %>
+                <% end %>
+              </div>
+              <div class="col name">
+                <%= friend.name %> 
+              </div>
+            </div>
+          <% end %>
+        </div>  
       </div>
   </div>
 

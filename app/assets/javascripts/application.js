@@ -13,25 +13,34 @@
 //= require rails-ujs
 //= require_tree .
 document.addEventListener('DOMContentLoaded', ()=>{
-const checkbox  = document.getElementById('checkbox');
-// const header = document.querySelector('header');
-// const logoName = document.querySelector('.name');
-// const footer = document.querySelector('footer');
-// const footerLinks = document.querySelector('.main-footer--links');
-// const nav = document.querySelector('.main-nav');
-// const main = document.querySelector('.main');
-console.log(checkbox);
-if (checkbox) {
-checkbox.addEventListener('change', () => {
-    //change to mode light/dark mode
-    document.body.classList.toggle("dark");
-    // header.classList.toggle('dark');
-    // logoName.classList.toggle('dark');
-    // footer.classList.toggle('dark');
-    // footerLinks.classList.toggle('dark');
-    // nav.classList.toggle('dark');
-    // main.classList.toggle('dark');
-    
-});
-}
-})
+  let darkMode = localStorage.getItem("darkMode")
+  const checkbox  = document.getElementById('checkbox');
+  
+  let darkEnabled = () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("darkMode", "on");
+      checkbox.checked = true;
+  }
+  
+  let darkDisabled = () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("darkMode", "null");
+      checkbox.checked = false;
+  }
+  
+  if (darkMode === "on") {
+      darkEnabled();
+  }
+  
+  
+  if (checkbox) {
+  checkbox.addEventListener('change', () => {
+      darkMode = localStorage.getItem("darkMode")
+      if (darkMode === 'on'){
+          darkDisabled()
+      } else {
+          darkEnabled()
+      }   
+  });
+  }
+  })
