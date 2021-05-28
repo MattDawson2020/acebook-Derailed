@@ -140,11 +140,23 @@
               <% if post.comments.length > 2 %>
               <span class="view-all-com">View all <%= post.comments.length %> comments</span>
                 <% post.comments.last(1).each do |comment| %>
-                  <p class="users-comments"><b class="post-username"><%= User.find_by(id: comment.user_id).nickname ? User.find_by(id: comment.user_id).nickname : User.find_by(id: comment.user_id).name %>  </b><%= comment.body %></p>
+                  <p class="users-comments"><b class="post-username"><%= User.find_by(id: comment.user_id).nickname ? User.find_by(id: comment.user_id).nickname : User.find_by(id: comment.user_id).name %>  </b><%= comment.body %>
+                 <% if comment.user_id == current_user.id %>
+                  <%= link_to(comment_path(comment), method: "delete", data: { confirm: "You will delete you comment" }, class: "del-com") do %>
+                   <i class="fas fa-times"></i>
+                  <% end %>
+                  <% end %>
+                  </p>
                   <% end %>
               <% else %>
                 <% post.comments.each do |comment| %>
-                  <p class="users-comments"><b class="post-username"><%= User.find_by(id: comment.user_id).nickname ? User.find_by(id: comment.user_id).nickname : User.find_by(id: comment.user_id).name %></b>  <%= comment.body %></p>
+                  <p class="users-comments"><b class="post-username"><%= User.find_by(id: comment.user_id).nickname ? User.find_by(id: comment.user_id).nickname : User.find_by(id: comment.user_id).name %></b>  <%= comment.body %>
+                  <% if comment.user_id == current_user.id %>
+                  <%= link_to(comment_path(comment), method: "delete", data: { confirm: "You will delete you comment" }, class: "del-com") do %>
+                   <i class="fas fa-times"></i>
+                  <% end %>
+                  <% end %>
+                  </p>
                 <% end %>
               <% end %>
             </div>
