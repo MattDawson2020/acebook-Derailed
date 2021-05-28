@@ -13,6 +13,39 @@
 //= require rails-ujs
 //= require_tree .
 
+document.addEventListener('DOMContentLoaded', ()=>{
+  let darkMode = localStorage.getItem("darkMode")
+  const checkbox  = document.getElementById('checkbox');
+  
+  let darkEnabled = () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("darkMode", "on");
+      checkbox.checked = true;
+  }
+  
+  let darkDisabled = () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("darkMode", "null");
+      checkbox.checked = false;
+  }
+  
+  if (darkMode === "on") {
+      darkEnabled();
+  }
+  
+  
+  if (checkbox) {
+  checkbox.addEventListener('change', () => {
+      darkMode = localStorage.getItem("darkMode")
+      if (darkMode === 'on'){
+          darkDisabled()
+      } else {
+          darkEnabled()
+      }   
+  });
+  }
+  })
+
 function readURL(input, id) {
   if (input.files && input.files[0]) {
     document.getElementById(id).style.display="block";
@@ -36,3 +69,4 @@ function showPassword() {
     }
   })
 }
+

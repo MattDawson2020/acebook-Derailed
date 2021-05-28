@@ -22,6 +22,7 @@
 }
 
 
+/* 
 #profile_card_img_div img{
   width:100%;
   max-width: 85px;
@@ -47,6 +48,8 @@
   padding: 0;
   position: relative;
 }
+ */
+
 
 #Post_picture{
   width: 70%;
@@ -88,7 +91,6 @@ input[type='file'] {
   height: 33px;
   outline: none;
   white-space: nowrap;
-  -webkit-user-select: none;
   cursor: pointer;
   color: white;
   text-align: center;

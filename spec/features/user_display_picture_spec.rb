@@ -18,7 +18,7 @@ feature "User displays picture" do
     attach_file "signUpDisplayPic", (File.dirname(__FILE__) + "/images/bob_ross_img.png")
     fill_in "signUpPassword", with: "CKMMNTT"
     fill_in "signUpPasswordConfirm", with: "CKMMNTT"
-    click_button 'Create User'
+    click_button "Create User"
     login
     first(:css, ".logo").click
     fill_in("new_post_message", with: "Hello")

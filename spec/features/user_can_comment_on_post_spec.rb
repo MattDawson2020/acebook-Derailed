@@ -14,5 +14,4 @@ feature "comments" do
     expect(page).to have_content "Hello, world!"
     expect(page).to have_content "Hello, thing!"
   end
-
 end

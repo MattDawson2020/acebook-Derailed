@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Timeline", type: :feature do
   scenario "Can submit posts and view them" do
@@ -9,7 +9,6 @@ RSpec.feature "Timeline", type: :feature do
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
   end
-  
 end
 
 RSpec.feature "Like", type: :feature do

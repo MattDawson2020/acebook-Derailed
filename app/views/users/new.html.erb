@@ -11,7 +11,7 @@
 <main>
 <div class="container signupBox">
 <h1 id="signupTitle">Sign Up</h1>  
-  <%= form_for @user, {class: "row g-3"} do |form|%>  
+  <%= form_for @user, { class: "row g-3" } do |form| %>  
     <div class="container signupLeft">
       <%= form.text_field :name, id: 'signUpName', class: "form-control col-md-6 signupEntry", placeholder: "Name", required: true%>
       <%= form.text_field :email, id: 'signUpEmail', class: "form-control col-md-6 signupEntry", placeholder: "Email Address", required: true %>
@@ -30,6 +30,7 @@
       <img id="img_prev" src="#" style="display:none"/>
     </div>
     <div class="container signupRight">
+
       <%= form.submit "Create User", id: "signUpCreateBtn", class: "form-control col-md-2 btn btn-lg btn-primary signupButton"%>
       <div id='return_to_login_div'>
         Already have an account? <br>

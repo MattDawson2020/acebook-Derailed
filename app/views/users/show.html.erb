@@ -53,6 +53,8 @@
           </div>
         </div>
 
+
+
     <div class="col-5 two post-feed">
       <% @posts.each do |post| %>
         <div class="container post-card">
@@ -73,7 +75,6 @@
           </div>
 
           <div class="caption-text row"><p><%= post.message %></p> <br></div> 
-
           <div class="row pic-image"> 
             <% if post.post_image.attached? %>
               <%= image_tag post.post_image %>
@@ -121,3 +122,4 @@
   </main>
 </body>
 </html>
+
