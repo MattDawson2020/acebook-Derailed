@@ -4,6 +4,13 @@
   margin-bottom: 10px;
   border-color: white;
   border-style: none;
+  padding-left: 20px;
+}
+
+.dark #new_post_message {
+  background-color: #fad8e2;
+  border-radius: 10px;
+
 }
 
 #new_post_user_icon img{

@@ -15,7 +15,7 @@
  */
 
   body {
-    background-color: #edf1f3; 
+    background-color: #edf1f3;
   }
 
   .welcome {
@@ -106,6 +106,8 @@
   }
 
 
+
+
   .user-icon {
     padding-right: 0;
     
@@ -123,8 +125,13 @@
   .post-username {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 900;
-    font-size: 20px;
+    font-size: 17px;
   }
+
+  .users-comments {
+    font-size: 13px;
+  }
+
 
   .time-ago {
     color: #62D1B6;
@@ -456,6 +463,13 @@ body.dark {
     
   }
 
+  .dark .all-friends {
+    background-color: #4a47a3;
+    color: #cd5d7d;
+    box-shadow: rgba(86, 162, 250, 0.4) 0px 5px, rgba(86, 162, 250, 0.3) 0px 10px, rgba(86, 162, 250, 0.2) 0px 15px, rgba(86, 162, 250, 0.1) 0px 20px, rgba(86, 162, 250, 0.05) 0px 25px;
+    
+  }
+
   .dark footer {
       background-color: #1a1a2e;
       color: #62D1B6;
@@ -464,6 +478,24 @@ body.dark {
   .dark #derailed-nav {
     background-color: #1a1a2e;
     color: #fa9579;
+  }
+
+  .dark .request-card {
+    background-color: #4a47a3;
+    color: #fa9579;
+    border-color: #fa9579;
+  }
+
+  .dark .title {
+      color: #fdb827;
+  }
+
+  .dark .name, .dark .invite-name {
+    color: #fdb827;
+  }
+
+  .dark .h6 {
+    color: #fdb827;
   }
 
   .dark .del-link{

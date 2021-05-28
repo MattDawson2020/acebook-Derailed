@@ -1,0 +1,43 @@
+
+
+#box-comment {
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: black;
+    border-style: none;
+    padding-left: 20px;
+    border-radius: 10px;
+
+   
+}
+
+
+
+#submit-comment {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    border-radius: .3rem;
+    color: #fff;
+    border-style: none;
+    border-radius: 10px;
+    height: 33px;
+    right: 24px;
+}
+
+#submit-comment:hover {
+    background-color: #095fdf;
+    transition-duration: 0.15s, 0.15s, 0.15s, 0.15s;
+  }
+  
+.dark #box-comment {
+background-color: #fad8e2;
+  border-radius: 10px;
+
+    
+}
+
+.dark #submit-comment {
+    background-color: #0d6efd;
+    border-color: #fad8e2;
+}

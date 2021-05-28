@@ -8,7 +8,7 @@ feature "comments" do
     fill_in "new_post_message", with: "Hello, world!"
     click_button "Submit"
     first(:css, ".comment-link").click
-    fill_in "Body", with: "Hello, thing!"
+    fill_in "box-comment", with: "Hello, thing!"
     click_button "Submit"
 
     expect(page).to have_content "Hello, world!"

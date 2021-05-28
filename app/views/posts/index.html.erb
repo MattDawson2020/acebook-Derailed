@@ -45,8 +45,8 @@
                   <%= image_tag "default-image.jpeg" %>
                 <% end %>
               </div>
-              <div class="col-6 name">
-                  <h6><%= user.name %></h6>
+              <div class="col-6 ">
+                  <h6 ><%= user.name %></h6>
               </div> 
               <div class="col-4"> 
                 <% if !Invitation.accepted?(user.id, current_user.id) %>
@@ -66,11 +66,11 @@
 
     <div class="col-6 two">
       <div id='new_post_bar' class="container post-card " >
-        <%= form_for @post, {id: "new_post_form"} do |form| %>
+        <%= form_for @post, { id: "new_post_form" } do |form| %>
           <%= form.text_field :message, id: "new_post_message", placeholder: "What's new, #{@current_user.display_name}?" %>
           <div class='row'>
             <div class="col-6"> 
-              <%= form.file_field :post_image, id: "Post_picture", class: "custom-file-input", onchange: "readURL(this, 'new_post_img_prev');"%>
+              <%= form.file_field :post_image, id: "Post_picture", class: "custom-file-input", onchange: "readURL(this, 'new_post_img_prev');" %>
             </div>
             <div class='col-1'>
               <img id="new_post_img_prev" src="#" style="display:none"/>
@@ -140,11 +140,11 @@
               <% if post.comments.length > 2 %>
               <span class="view-all-com">View all <%= post.comments.length %> comments</span>
                 <% post.comments.last(1).each do |comment| %>
-                  <p><b class="post-username"><%= User.find_by(id: comment.user_id).nickname ? User.find_by(id: comment.user_id).nickname : User.find_by(id: comment.user_id).name %>  </b><%= comment.body %></p>
+                  <p class="users-comments"><b class="post-username"><%= User.find_by(id: comment.user_id).nickname ? User.find_by(id: comment.user_id).nickname : User.find_by(id: comment.user_id).name %>  </b><%= comment.body %></p>
                   <% end %>
               <% else %>
                 <% post.comments.each do |comment| %>
-                  <p><b class="post-username"><%= User.find_by(id: comment.user_id).nickname ? User.find_by(id: comment.user_id).nickname : User.find_by(id: comment.user_id).name %></b>  <%= comment.body %></p>
+                  <p class="users-comments"><b class="post-username"><%= User.find_by(id: comment.user_id).nickname ? User.find_by(id: comment.user_id).nickname : User.find_by(id: comment.user_id).name %></b>  <%= comment.body %></p>
                 <% end %>
               <% end %>
             </div>

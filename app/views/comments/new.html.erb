@@ -9,13 +9,15 @@
 </head>
 <body>
   <main>
+  <div class="comment-box">
     <%= form_for @comment do |form| %>
-      <%= form.hidden_field :user_id, value: @user.id %>
+      <%= form.hidden_field :user_id, value: session[:user_id] %>
       <%= form.hidden_field :post_id, value: @post.id %>
-      <%= form.label :body %>
-      <%= form.text_field :body %>
-      <%= form.submit "Submit" %>
+      <%= form.label :body, id: "com-label" %>
+      <%= form.text_field :body, id: "box-comment", placeholder: "Your comment" %>
+      <%= form.submit "Submit", id: "submit-comment" %>
     <% end %>
+    </div>
   </main>
 </body>
 </html>
