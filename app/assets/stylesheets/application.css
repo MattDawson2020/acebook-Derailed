@@ -15,7 +15,16 @@
  */
 
   body {
-     background-color: #edf1f3; 
+    background-color: #edf1f3; 
+  }
+
+  .welcome {
+    background-image: url(umbrella_background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
   }
 
   main {
