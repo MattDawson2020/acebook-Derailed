@@ -3,6 +3,7 @@ feature "a User" do
     sign_up_user_1
     sign_up_user_2
     login_user_1
+    first(:css, ".logo").click
     expect(page).to have_content("user2")
   end
 
@@ -10,6 +11,7 @@ feature "a User" do
     sign_up_user_1
     sign_up_user_2
     login_user_1
+    first(:css, ".logo").click
     expect(page).to have_button("Invite")
   end
 
@@ -17,9 +19,11 @@ feature "a User" do
     sign_up_user_1
     sign_up_user_2
     login_user_1
+    first(:css, ".logo").click
     click_button "Invite"
     click_link "Logout"
     login_user_2
+    first(:css, ".logo").click
     expect(page).to have_button("Accept")
     expect(page).to have_button("Refuse")
   end
@@ -28,9 +32,11 @@ feature "a User" do
     sign_up_user_1
     sign_up_user_2
     login_user_1
+    first(:css, ".logo").click
     click_button "Invite"
     click_link "Logout"
     login_user_2
+    first(:css, ".logo").click
     click_button "Accept"
     expect(page).not_to have_button("Accept")
     expect(page).not_to have_button("Refuse")
