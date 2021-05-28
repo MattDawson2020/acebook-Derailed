@@ -53,7 +53,7 @@
     background-color:rgba(86, 162, 250, 0.1);
     border-radius: 12px;
     margin-bottom: 15px;
-    
+    border: #dadcdd solid 1px;
   }
   .profile-card {
     background-color: white;
@@ -270,6 +270,18 @@ min-width: 100px;
   color: rgb(42, 89, 143);
 }
 
+.request-count {
+  background-color: #ec5656;;
+  color: white;
+  padding: 3px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+}
+
 .request-icon{
   display: flex;
   align-items: center;
@@ -331,6 +343,11 @@ min-width: 100px;
   color: rgb(42, 89, 143);
 }
 
+
+.all-friends .header {
+  width: 100%;
+}
+
 .friend {
   display: flex;
   align-items: center;
@@ -338,6 +355,15 @@ min-width: 100px;
   margin-top: 15px;
   padding-bottom: 10px;
   border-bottom: #d6d6d6 solid 1px;
+}
+
+.friend-count {
+  background-color: #d3d4d4;
+  color: #8a8a8a;
+  padding: 3px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .friend .user-icon img {
@@ -354,6 +380,10 @@ min-width: 100px;
   font-weight: 900;
   font-size: 15px;
   color: #393e46;
+}
+
+.view-profile {
+  padding-left: 7%;
 }
 
 
