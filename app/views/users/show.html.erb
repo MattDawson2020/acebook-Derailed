@@ -14,15 +14,15 @@
           <div class="container profile-window">
             <div class="row">
             <div class="col-4">
-              <% if current_user.image.attached? %>
-                <%= image_tag current_user.image %>
+              <% if @user.image.attached? %>
+                <%= image_tag @user.image %>
               <% else %>
                 <%= image_tag "default-image.jpeg" %>
               <% end %>
             </div>
             <div class="col-8 profile-window-names">
-              <h4><%= current_user.nickname %></h4>
-              <h6><%= current_user.name %></h6>
+              <h4><%= @user.nickname %></h4>
+              <h6><%= @user.name %></h6>
             </div>
           </div>
             <div class="row profile-details">

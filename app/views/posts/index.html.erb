@@ -193,6 +193,11 @@
               <div class="col name">
                 <%= friend.name %> 
               </div>
+              <div class="col-1 view-profile">
+                <%= link_to user_path(friend.id), class: "profile-link" do %>
+                    <i class="fas fa-search"></i>
+                <% end %>
+              </div>
             </div>
           <% end %>
         </div>  
