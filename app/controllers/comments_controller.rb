@@ -10,6 +10,12 @@ class CommentsController < ApplicationController
     redirect_to posts_url
   end
 
+  def destroy
+    @comment = Comment.find_by(id: params[:id])
+    @comment.destroy
+    redirect_to posts_url
+  end
+
   private
 
   def comment_params
