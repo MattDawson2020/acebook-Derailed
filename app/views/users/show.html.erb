@@ -9,7 +9,6 @@
   <title>Profile Page</title>
 </head>
 <body>
-  
   <main>
     <div class="container-fluid">
       <div class="row">
@@ -29,37 +28,25 @@
             </div>
           </div>
             <div class="row profile-details">
-              <div class="row top-row"> 
-                <div class="col-4">
-                  <h6>Name</h6>
-                </div>
-                <div class="col-1"></div>
-                <div class="col-5 right-col">
-                   <%= "#{@user.name}" %>
-                </div>
-              </div>
-              <div class="row"> 
-                <div class="col-4">
-                   <h6> Nickname</h6> 
-                </div>
-                <div class="col-1"></div>
-                <div class="col-5 right-col">
-                   <%= "#{@user.nickname}" if @user.nickname %>
-                </div>
-              </div>
               <div class="row"> 
                 <div class="col-4">
                    <h6>Email</h6>
                 </div>
                 <div class="col-1"></div>
                 <div class="col-5 right-col">
-                   <%= "#{@user.email}" %>
+                  <p class="useremail">
+                    <%= "#{@user.email}" %>
+                  </p>
                 </div>
               </div>
             </div>
 
             <div class="row edit-div">
-              <div class="col-10 " ></div>
+              <div class="col-10" >
+                <p class="usertime">
+                  <span class="time-ago"><%="Joined #{time_ago_in_words(@user.created_at)} ago"  %></span>
+                </p>
+              </div>
               <div class="col-1 ">
                 <%= link_to edit_user_path(@user.id), method: 'get', class: "col-1 edit-button", id: "Edit Profile" do %>
                 <i class="fas fa-wrench"></i><% end%>
@@ -68,10 +55,7 @@
           </div>
         </div>
 
-          <%# <%= "#{@user.name}'s profile" %> 
-
-
-        <div class="col-5 two post-feed">
+    <div class="col-5 two post-feed">
       <% @posts.each do |post| %>
         <div class="container post-card">
           <div class="row">
@@ -106,19 +90,17 @@
                 <i class="far fa-comment"></i>
               <% end %>
             </div>
-             <div class="like-feat col-2">
-         <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
-       </div>
-        <div class="like-feat col-1">
-      <% if post.user_id == session[:user_id] %>
-       <%= link_to(post, method: "delete", data: { confirm: "Are you sure?" }, class: "del-link") do %>
-       <i class="far fa-trash-alt"></i>
-           <% end %>
-           <% end %>
-      </div>
-   
+            <div class="like-feat col-2">
+              <%= post.likes %> <%= post.likes == 1 ? "like" : "likes" %>
+            </div>
+            <div class="like-feat col-1">
+              <% if post.user_id == session[:user_id] %>
+                <%= link_to(post, method: "delete", data: { confirm: "Are you sure?" }, class: "del-link") do %>
+                <i class="far fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            </div>
           </div>
-
 
           <div class="row">
             <% if post.comments.length > 2 %>
@@ -134,9 +116,10 @@
           </div>
         </div>
       <% end %>
-    </div>
+      </div>
         <div class="col"></div>
       </div>
     </div>
   </main>
 </body>
+</html>
