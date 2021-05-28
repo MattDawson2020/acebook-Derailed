@@ -4,14 +4,8 @@ feature "comments" do
   scenario "User can create a comment" do
     sign_up
     login
-
-    click_link "New post"
-    #change to button when styling is introduced
-
-    fill_in "Message", with: "Hello, world!"
+    fill_in "new_post_message", with: "Hello, world!"
     click_button "Submit"
-    
-    # click_link "New comment"
     first(:css, ".comment-link").click
     fill_in "Body", with: "Hello, thing!"
     click_button "Submit"
