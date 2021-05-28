@@ -42,5 +42,8 @@ class User < ApplicationRecord
     invitations.create(friend_id: id)
   end
   
+  def display_name
+    self.nickname ? self.nickname : self.name
+  end
 
 end
