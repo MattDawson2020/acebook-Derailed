@@ -55,16 +55,14 @@
     margin-bottom: 15px;
     border: #dadcdd solid 1px;
   }
+
   .profile-card {
     background-color: white;
-    
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 30px;
-    
     box-shadow: rgba(86, 162, 250, 0.4) 0px 10px, rgba(86, 162, 250, 0.3) 0px 20px, rgba(86, 162, 250, 0.2) 0px 30px, rgba(86, 162, 250, 0.1) 0px 40px, rgba(86, 162, 250, 0.05) 0px 50px;
     max-width: 450px;
-    
   }
 
   .profile-card img{
