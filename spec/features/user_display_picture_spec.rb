@@ -4,10 +4,10 @@ feature "User displays picture" do
   scenario "a user's name appears next to a post" do
     sign_up
     login
-    # save_and_open_page
-    fill_in "new_post_message", with: "Hello, world!"
+    first(:css, ".logo").click
+    fill_in("new_post_message", with: "Hello")
     click_button("Submit")
-    expect(page).to have_content("0")
+    expect(page).to have_content("teamDerailed")
   end
 
   scenario "a user's display picture appears next to post" do
@@ -20,7 +20,8 @@ feature "User displays picture" do
     fill_in "signUpPasswordConfirm", with: "CKMMNTT"
     click_button "Create User"
     login
-    fill_in "new_post_message", with: "Hello, world!"
+    first(:css, ".logo").click
+    fill_in("new_post_message", with: "Hello")
     click_button("Submit")
     expect(page).to have_css("img[src*='bob_ross_img.png']")
   end

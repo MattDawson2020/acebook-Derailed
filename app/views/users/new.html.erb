@@ -5,41 +5,37 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<script>
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      document.getElementById('img_prev').style.display="block";
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        $('#img_prev')
-        .attr('src', e.target.result)
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-</script>
-<%= javascript_include_tag "application" %>
   <title>Document</title>
 </head>
-<body>
+<body class='welcome'>
 <main>
 <div class="container signupBox">
 <h1 id="signupTitle">Sign Up</h1>  
   <%= form_for @user, { class: "row g-3" } do |form| %>  
     <div class="container signupLeft">
-      <%= form.text_field :name, id: "signUpName", class: "form-control col-md-6 signupEntry", placeholder: "Name" %>
-      <%= form.text_field :email, id: "signUpEmail", class: "form-control col-md-6 signupEntry", placeholder: "Email Address" %>
-      <%= form.password_field :password, id: "signUpPassword", class: "form-control col-md-6 signupEntry", placeholder: "Password" %>
-      <%= form.password_field :password_confirmation, id: "signUpPasswordConfirm", class: "form-control col-md-6 signupEntry", placeholder: "Re-confirm password" %>
+      <%= form.text_field :name, id: 'signUpName', class: "form-control col-md-6 signupEntry", placeholder: "Name", required: true%>
+      <%= form.text_field :email, id: 'signUpEmail', class: "form-control col-md-6 signupEntry", placeholder: "Email Address", required: true %>
+      <%= form.password_field :password, id: 'signUpPassword', class: "form-control col-md-6 signupEntry", placeholder: "Password", minlength: 6, maxlength: 20, required: true %>
+      <%= form.password_field :password_confirmation, id: 'signUpPasswordConfirm', class: "form-control col-md-6 signupEntry", placeholder: "Re-confirm password", minlength: 6, maxlength: 20, required: true%>
+      <div id='sign_up_password_helpers'>
+        <div onclick="showPassword()" id="show_password">Show Password</div>
+        <div class='tooltip'>
+          <i class="fas fa-question-circle", id="password_info_icon"></i>
+          <span class='tooltiptext'>Password must be between 6 and 20 characters.</span>
+        </div>
+      </div>
       <br>
-      <%= form.label :image, "Display Picture" %>
-      <%= form.file_field :image, id: "signUpDisplayPic", class: "form-control col-md-6 signupEntry", onchange: "readURL(this);" %>
+      <%= form.label :image, 'Display Picture', id: 'sign_up_display_pic_label' %>
+      <%= form.file_field :image, id: 'signUpDisplayPic', class: "form-control col-md-6 signupEntry", onchange: "readURL(this, 'img_prev');"%>
       <img id="img_prev" src="#" style="display:none"/>
-      <br>
     </div>
     <div class="container signupRight">
-      <%= form.submit "Create User", id: "signUpCreateBtn", class: "form-control col-md-2 btn btn-lg btn-primary signupButton" %>
+
+      <%= form.submit "Create User", id: "signUpCreateBtn", class: "form-control col-md-2 btn btn-lg btn-primary signupButton"%>
+      <div id='return_to_login_div'>
+        Already have an account? <br>
+        <%= link_to "Log in", root_path, {id: 'return_to_login_link'} %>
+      </div>
     </div>
   <% end %>
 </div> 

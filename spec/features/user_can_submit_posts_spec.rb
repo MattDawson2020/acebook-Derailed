@@ -4,6 +4,7 @@ RSpec.feature "Timeline", type: :feature do
   scenario "Can submit posts and view them" do
     sign_up
     login
+    first(:css, ".logo").click
     fill_in "new_post_message", with: "Hello, world!"
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
@@ -14,6 +15,7 @@ RSpec.feature "Like", type: :feature do
   scenario "Can like a post" do
     sign_up
     login
+    first(:css, ".logo").click
     fill_in "new_post_message", with: "Hello, world!"
     click_button "Submit"
     first(:css, ".like-link").click
@@ -25,6 +27,7 @@ RSpec.feature "Post_image", type: :feature do
   scenario "Can add a picture to the post" do
     sign_up
     login
+    first(:css, ".logo").click
     fill_in "new_post_message", with: "Hello, world!"
     attach_file "Post_picture", (File.dirname(__FILE__) + "/images/Unknown.png")
     click_button "Submit"

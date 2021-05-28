@@ -4,10 +4,9 @@ feature "comments" do
   scenario "User can create a comment" do
     sign_up
     login
-
+    first(:css, ".logo").click
     fill_in "new_post_message", with: "Hello, world!"
     click_button "Submit"
-
     first(:css, ".comment-link").click
     fill_in "Body", with: "Hello, thing!"
     click_button "Submit"

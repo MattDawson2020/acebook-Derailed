@@ -7,6 +7,7 @@ feature "Logout" do
     login
     expect(page).to have_content("Successful login, welcome teamDerailed")
     click_link "Logout"
+    
     expect(current_path).to eq "/"
     expect(@current_user).to be nil
   end

@@ -1,11 +1,22 @@
-<main>
-<%= form_for @comment do |form| %>
-  <%= form.hidden_field :user_id, value: session[:user_id] %>
-  <%= form.hidden_field :post_id, value: @post.id %>
-  <%= form.label :body %>
-  <%= form.text_field :body %>
-  
-  <%= form.submit "Submit" %>
 
-<% end %>
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <%= form_for @comment do |form| %>
+      <%= form.hidden_field :user_id, value: @user.id %>
+      <%= form.hidden_field :post_id, value: @post.id %>
+      <%= form.label :body %>
+      <%= form.text_field :body %>
+      <%= form.submit "Submit" %>
+    <% end %>
+  </main>
+</body>
+</html>
+

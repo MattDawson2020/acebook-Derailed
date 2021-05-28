@@ -15,12 +15,21 @@
  */
 
   body {
-     background-color: #edf1f3; 
+    background-color: #edf1f3; 
+  }
+
+  .welcome {
+    background-image: url(umbrella_background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
   }
 
 
   main {
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto;
     margin-top: 80px;
   }
@@ -30,11 +39,10 @@
    top: 0;
    width: 100%;
    background-color: white;
+   margin-bottom: 5%;
+   z-index: 10;
+
   }
-  
-  /* .nav-item:hover{
-    background-color: #5DA6FB;
-  } */
   
   .logo img{
     max-height: 40px;
@@ -97,6 +105,7 @@
      margin-top: 15px;
   }
 
+
   .user-icon {
     padding-right: 0;
     
@@ -110,7 +119,6 @@
     padding-right: 0;
     object-fit: cover;
   }
-
 
   .post-username {
     font-family: 'Source Sans Pro', sans-serif;
@@ -179,6 +187,7 @@
  .del-link:hover {
      color: tomato;
 }
+
 
 .users-card {
  
@@ -347,6 +356,7 @@ min-width: 100px;
   color: #393e46;
 }
 
+
  footer {
 
   display: flex;
@@ -358,7 +368,10 @@ min-width: 100px;
   height: 3.5rem;
   font-family: 'Play', sans-serif;
   background-color: white;
+  margin-top: 5%;
+  
   }
+
 
   .light-dark {
     display: inline-block;
@@ -472,3 +485,58 @@ body.dark {
 .dark .navbar-light .navbar-nav .nav-link{
     color: #62D1B6;
 }
+
+.flash {
+  position: absolute;
+  top: 20%;
+  width: 20%;
+  text-align: center;
+  font-size: 18px;
+  z-index: 15;
+}
+
+.error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: center;
+  margin-left: 40%;
+}
+
+.emailerror {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: center;
+  margin-left: 40%;
+}
+
+.notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: center;
+  margin-left: 40%;
+  top: 3%;
+}
+
+.deletion {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: center;
+  margin-left: 40%;
+  top: 3%;
+}
+
+.newuser {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: center;
+  margin-left: 40%;
+  top: 3%;
+}
+
+
+

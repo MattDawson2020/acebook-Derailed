@@ -25,6 +25,7 @@ class User < ApplicationRecord
     user = User.find(id)
     user.name
   end
+
   
   def friends
     sent_invitation = Invitation.where(user_id: id, confirmed: true).pluck(:friend_id)

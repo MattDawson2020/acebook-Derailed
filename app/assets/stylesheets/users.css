@@ -5,8 +5,8 @@
     position: relative;
     background-color: white;
     border-radius: 20px;
-    margin-top: 180px;
-    margin-bottom: auto;
+    margin-top: 13%;
+    margin-bottom: 5%;
     padding: 10px;
     box-shadow: 4px 4px 10px 4px #888888;
 }
@@ -23,7 +23,7 @@ position: absolute;
 right: 30px;
 width: 30%;
 text-align: center;
-margin-top: 120px;
+margin-top: 90px;
 }
 
 .signupEntry{
@@ -44,10 +44,249 @@ position: absolute;
 height: 100px;
 width: auto;
 max-width: 157px;
-left: 310px;
-bottom: 1px;
+left: 300px;
+bottom: -40px;
 }
 
 #signUpDisplayPic{
 width: 60%;
+}
+
+.profile-window {
+    background-color: white;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    
+    box-shadow: rgba(86, 162, 250, 0.4) 0px 5px, rgba(86, 162, 250, 0.3) 0px 10px, rgba(86, 162, 250, 0.2) 0px 15px, rgba(86, 162, 250, 0.1) 0px 20px, rgba(86, 162, 250, 0.05) 0px 25px;
+    max-width: 450px;
+    
+  }
+
+.profile-window img{
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10%;
+}
+
+.profile-window-names{
+    line-height: 30px;
+    padding-top: 15px;
+    padding-left: 1%;
+    
+   
+}
+
+.profile-window-names h6 {
+    color: #62d1b6;
+    margin-left: 1%;
+}
+
+.profile-details h6{
+    color: #62d1b6;
+    margin-bottom: 8%;
+    margin-top: 7%;
+    margin-left: 30%;
+}
+
+.right-col{
+    padding: 0%;
+}
+
+.edit-button{
+    display: flex;
+    justify-content: right; 
+    text-decoration: none;
+    margin-top: 50%;
+}
+
+
+.post-feed {
+    margin-bottom: 60px;
+    overflow: auto;
+  }
+
+  .post-card {
+    background-color: white;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    max-width: 700px;
+  }
+
+  .user-features {
+     margin-top: 15px;
+  }
+
+  .user-icon {
+    padding-right: 0;
+    
+  }
+  
+  .user-icon img {
+    vertical-align: middle;
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    padding-right: 0;
+  }
+
+
+  .post-username {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 900;
+  }
+
+  .time-ago, .view-all-com {
+    color: #62D1B6;
+    font-size: 10px;
+  }
+
+  .caption-text {
+    font-family: 'Source Sans Pro', sans-serif; 
+    font-weight: 400;
+  }
+
+  .pic-image{
+      max-width: 600px;
+      margin: 0 auto;
+      margin-bottom: 7px;
+  }
+
+  i {
+      margin-right: 4px;
+  }
+
+
+  .far {
+      font-size: larger;
+  }
+
+  .like-feat {
+      font-weight: 200;
+      font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  
+
+ .caption-text {
+    font-weight: 400;
+     font-family: 'Source Sans Pro', sans-serif; 
+ }
+ 
+
+
+ .del-link{
+    font-size: small;
+    color: #999;
+    display: flex;
+    justify-content: flex-end;
+ }
+
+ .like-link, .comment-link {
+    color: #393e46;
+ }
+
+ .like-link:hover, .comment-link:hover, .edit-button:hover {
+    color: #5aa897;
+ }
+
+ .del-link:hover {
+     color: tomato;
+}
+
+.like-link:hover, .comment-link:hover {
+    color: #5aa897;
+ }
+
+.changeBox {
+  border-style: none;
+  width: 800px;
+  height: 500px;
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 13%;
+  margin-bottom: 5%;
+  padding: 10px;
+  box-shadow: 4px 4px 10px 4px #888888;
+} 
+
+#return_to_login_div {
+  text-align: center;
+  color: grey;
+  margin-top: 10px;
+}
+
+#return_to_login_link{
+    color:grey;
+  }
+  
+#return_to_login_link:hover {
+  color:#1778F2;
+}
+
+#sign_up_password_helpers {
+  position: relative;
+}
+
+#show_password{
+  cursor: pointer;
+  text-align: right;
+  color: grey;
+  width: 30%;
+  position: absolute;
+  right: 32px;
+}
+
+#password_info_icon{
+  color: grey;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+#show_password:hover {
+  color:#1778F2;
+}
+
+#sign_up_display_pic_label {
+  color:grey
+}
+
+.useremail{
+  margin-left: -9%;
+  margin-top: 2%
+}
+
+.usertime{
+  margin-left: 9%;
+}
+
+.tooltip {
+  position: absolute;
+  right:0;
+  opacity: 1;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

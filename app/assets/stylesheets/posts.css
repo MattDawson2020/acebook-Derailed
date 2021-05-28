@@ -21,6 +21,36 @@
   position: relative;
 }
 
+
+/* 
+#profile_card_img_div img{
+  width:100%;
+  max-width: 85px;
+  height: auto;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#profile_card_img_div{
+  padding: 0;
+  position: relative;
+}
+
+.user-icon img{
+  width:100%;
+  max-width: 50px;
+  height: auto;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.user-icon{
+  padding: 0;
+  position: relative;
+}
+ */
+
+
 #Post_picture{
   width: 70%;
 }
