@@ -23,7 +23,7 @@ position: absolute;
 right: 30px;
 width: 30%;
 text-align: center;
-margin-top: 120px;
+margin-top: 90px;
 }
 
 .signupEntry{
@@ -44,8 +44,8 @@ position: absolute;
 height: 100px;
 width: auto;
 max-width: 157px;
-left: 310px;
-bottom: 1px;
+left: 300px;
+bottom: -40px;
 }
 
 #signUpDisplayPic{
@@ -217,6 +217,49 @@ width: 60%;
   box-shadow: 4px 4px 10px 4px #888888;
 } 
 
+#return_to_login_div {
+  text-align: center;
+  color: grey;
+  margin-top: 10px;
+}
+
+#return_to_login_link{
+    color:grey;
+  }
+  
+#return_to_login_link:hover {
+  color:#1778F2;
+}
+
+#sign_up_password_helpers {
+  position: relative;
+}
+
+#show_password{
+  cursor: pointer;
+  text-align: right;
+  color: grey;
+  width: 30%;
+  position: absolute;
+  right: 32px;
+}
+
+#password_info_icon{
+  color: grey;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+#show_password:hover {
+  color:#1778F2;
+}
+
+#sign_up_display_pic_label {
+  color:grey
+}
+
 .useremail{
   margin-left: -9%;
   margin-top: 2%
@@ -226,3 +269,24 @@ width: 60%;
   margin-left: 9%;
 }
 
+.tooltip {
+  position: absolute;
+  right:0;
+  opacity: 1;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
