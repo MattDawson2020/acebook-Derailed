@@ -518,6 +518,19 @@ body.dark {
     color: #62D1B6;
 }
 
+.del-com {
+    color: rgb(243, 152, 170); 
+}
+
+.dark .del-com {
+    opacity: 0.4;
+    color: rgb(243, 152, 170);
+}
+
+.dark .del-com:hover {
+    color: red;
+}
+
 .flash {
   position: absolute;
   top: 20%;
