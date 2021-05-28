@@ -35,7 +35,6 @@ RSpec.feature "Edit profile", type: :feature do
     fill_in "Email Address", with: "another@email.com"
     click_button "Confirm Changes"
     expect(page).to have_content("another@email.com")
-    save_and_open_page
   end
   
 end

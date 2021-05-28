@@ -4,6 +4,7 @@ feature "User can delete a post" do
   scenario "delete post" do
     sign_up
     login
+    first(:css, ".logo").click
     fill_in "new_post_message", with: "Hello, world!"
     click_button "Submit"
     first(:css, ".del-link").click
