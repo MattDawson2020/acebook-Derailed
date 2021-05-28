@@ -157,7 +157,14 @@
 
     <div class="col three">
       <div class="container requests">
-        <h5 class="title">Requests</h5>
+        <div class=row>
+            <div class="col-11">
+              <h5 class="title">Requests</h5>
+            </div>
+            <div class="col-1 request-count">
+              <%=Invitation.requests(current_user.id).count%>
+            </div>
+        </div>
         <% Invitation.requests(current_user.id).each do |request| %>
           <div class="row request-card">
             <div class="col-4 request-icon">
@@ -180,21 +187,33 @@
         <% end %>
       
         <div class="row all-friends">    
-          <h5 class="title"> Friends </h5>
-          <% current_user.friends.each do |friend| %>
-            <div class="friend">
-              <div class="col-2 user-icon">
-                <% if friend.image.attached? %>
-                  <%= image_tag friend.image %>
-                <% else %>
-                  <%= image_tag "default-image.jpeg" %>
-                <% end %>
-              </div>
-              <div class="col name">
-                <%= friend.name %> 
-              </div>
+          <div class="row header">
+            <div class="col-11">
+              <h5 class="title"> Friends </h5>
             </div>
-          <% end %>
+            <div class="col-1 friend-count">
+              <%=current_user.friends.count%>
+            </div>
+          </div>
+            <% current_user.friends.each do |friend| %>
+              <div class="friend">
+                <div class="col-2 user-icon">
+                  <% if friend.image.attached? %>
+                    <%= image_tag friend.image %>
+                  <% else %>
+                    <%= image_tag "default-image.jpeg" %>
+                  <% end %>
+                </div>
+                <div class="col name">
+                  <%= friend.name %> 
+                </div>
+                <div class="col-2 view-profile">
+                  <%= link_to user_path(friend.id), class: "profile-link" do %>
+                      <i class="fas fa-search"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
         </div>  
       </div>
   </div>

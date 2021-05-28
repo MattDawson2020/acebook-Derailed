@@ -53,18 +53,16 @@
     background-color:rgba(86, 162, 250, 0.1);
     border-radius: 12px;
     margin-bottom: 15px;
-    
+    border: #dadcdd solid 1px;
   }
+
   .profile-card {
     background-color: white;
-    
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 30px;
-    
     box-shadow: rgba(86, 162, 250, 0.4) 0px 10px, rgba(86, 162, 250, 0.3) 0px 20px, rgba(86, 162, 250, 0.2) 0px 30px, rgba(86, 162, 250, 0.1) 0px 40px, rgba(86, 162, 250, 0.05) 0px 50px;
     max-width: 450px;
-    
   }
 
   .profile-card img{
@@ -277,6 +275,18 @@ min-width: 100px;
   color: rgb(42, 89, 143);
 }
 
+.request-count {
+  background-color: #ec5656;;
+  color: white;
+  padding: 3px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+}
+
 .request-icon{
   display: flex;
   align-items: center;
@@ -338,6 +348,11 @@ min-width: 100px;
   color: rgb(42, 89, 143);
 }
 
+
+.all-friends .header {
+  width: 100%;
+}
+
 .friend {
   display: flex;
   align-items: center;
@@ -345,6 +360,15 @@ min-width: 100px;
   margin-top: 15px;
   padding-bottom: 10px;
   border-bottom: #d6d6d6 solid 1px;
+}
+
+.friend-count {
+  background-color: #d3d4d4;
+  color: #8a8a8a;
+  padding: 3px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .friend .user-icon img {
@@ -361,6 +385,10 @@ min-width: 100px;
   font-weight: 900;
   font-size: 15px;
   color: #393e46;
+}
+
+.view-profile {
+  padding-left: 7%;
 }
 
 
